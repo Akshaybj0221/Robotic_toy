@@ -15,19 +15,19 @@ class ControlTurtlebot():
 		rate = 50
 		r = rospy.Rate(rate);
 		
-		linear_speed = 0.2
+		linear_speed = 0.5
 		goal_distance = 1.0 
 		linear_duration = goal_distance / linear_speed
 		angular_speed = 1.0
 
-		n = 2
+		n = 4
 		angle = 360 / n		
 		pi = 3.14
 		rad = angle*(pi/180)
 
-		angular_duration = rad / angular_speed
+		angular_duration = (rad / angular_speed)
 
-		for i in range(2):
+		for i in range(n):
 
 			move_cmd = Twist()
 			move_cmd.linear.x = linear_speed
@@ -42,7 +42,7 @@ class ControlTurtlebot():
 			self.cmd_vel.publish(move_cmd)
 			rospy.sleep(1)
 			
-			move_cmd.angular.z = angular_speed
+			move_cmd.angular.z = angular_speed + 0.10
 			ticks = int(rad * rate)
 	
 			for t in range(ticks):
