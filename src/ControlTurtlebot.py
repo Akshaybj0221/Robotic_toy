@@ -17,8 +17,8 @@ class ControlTurtlebot():
 		move_cmd.angular.z = 0
 
 		while not rospy.is_shutdown():
-		self.cmd_vel.publish(move_cmd)
-		rate.sleep()
+			self.cmd_vel.publish(move_cmd)
+			rate.sleep()
 
 	def shutdown(self)
 		rospy.loginfo("Stopping turtlebot")
