@@ -11,7 +11,7 @@ class ControlTurtlebot():
 		#Topic on which msg will be sent
 		#cmd_vel_mux/input/navi		
 		self.cmd_vel = rospy.Publisher('mobile_base/commands/velocity', Twist, queue_size=10)
-	
+
 		rate = 50
 		r = rospy.Rate(rate);
 		
@@ -19,16 +19,19 @@ class ControlTurtlebot():
 		goal_distance = 1.0 
 		linear_duration = goal_distance / linear_speed
 		angular_speed = 1.0
-		n = 4
+
+		n = 2
 		angle = 360 / n		
 		pi = 3.14
 		rad = angle*(pi/180)
-		
+
 		angular_duration = rad / angular_speed
 
 		for i in range(2):
-			move_cmd.angular.z = rad
+
+			move_cmd = Twist()
 			move_cmd.linear.x = linear_speed
+			rospy.loginfo("Inside 1st i loop")
 			ticks = int(linear_duration * rate)
 
 			for t in range(ticks):
@@ -40,7 +43,7 @@ class ControlTurtlebot():
 			rospy.sleep(1)
 			
 			move_cmd.angular.z = angular_speed
-			ticks = int(goal_angle * rate)
+			ticks = int(rad * rate)
 	
 			for t in range(ticks):
 				self.cmd_vel.publish(move_cmd)
