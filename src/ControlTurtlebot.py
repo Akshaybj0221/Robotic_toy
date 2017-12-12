@@ -20,7 +20,7 @@ class ControlTurtlebot():
 			self.cmd_vel.publish(move_cmd)
 			rate.sleep()
 
-	def shutdown(self)
+	def shutdown(self):
 		rospy.loginfo("Stopping turtlebot")
 		self.cmd_vel.publish(Twist())
 		rospy.sleep(1)
