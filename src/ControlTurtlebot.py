@@ -13,9 +13,16 @@ class ControlTurtlebot():
 		self.cmd_vel = rospy.Publisher('mobile_base/commands/velocity', Twist, queue_size=10)
 		rate = rospy.Rate(10);
 		move_cmd = Twist()
-		move_cmd.linear.x = 0.3
-		move_cmd.angular.z = 0
 
+		n = 4
+		angle = 360 / n		
+		pi = 3.14
+		rad = angle*(pi/180)
+
+		move_cmd.linear.x = 0.3
+		#rate.sleep(0.3)
+		move_cmd.angular.z = rad
+		#rate.sleep(0.5)
 		while not rospy.is_shutdown():
 			self.cmd_vel.publish(move_cmd)
 			rate.sleep()
