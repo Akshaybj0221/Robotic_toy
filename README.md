@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Akshaybj0221/Robotic_toy/blob/master/LICENSE)
 
+[![Build Status](https://travis-ci.org/Akshaybj0221/Robotic_toy.svg?branch=master)](https://travis-ci.org/Akshaybj0221/Robotic_toy)
+
 This repository showcases the ROS package for the Robotic toy project.
 
 ---
