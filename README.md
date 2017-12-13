@@ -10,17 +10,15 @@ This repository showcases the ROS package for the Robotic toy project.
 
 The link to the defect log, time log, product backlog, Iteration backlog, release backlog table are as follows:
 
-Product Backlog: https://docs.google.com/spreadsheets/d/1ARE-m1TVrMjwP5QnjJDIy7vjO3YFEOjuipjcBgkJD4w/edit?usp=sharing
+Product Backlog: https://docs.google.com/spreadsheets/d/1XhrbZjeozz02wAhwiE5d25f-5yS15jGHrX1-cPPEQfs/edit?usp=sharing
 
-Iteration Backlog: https://docs.google.com/spreadsheets/d/1hsRM5sYC3laXD_c4UtU0Pys1ZRHazFw-7FRlQcmtSgg/edit?usp=sharing
+Iteration Backlog: https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing
 
-Release Backlog Table: https://docs.google.com/spreadsheets/d/1CuWvDiuVYU89Ndl6akPYEkMMkhjtW8jLH_CkdJijKRQ/edit?usp=sharing
+Release Backlog Table: https://docs.google.com/spreadsheets/d/1TbC_kTvKK2MRH9XEX8YbNeR_NHrXO2tIK1uxxjgT04Y/edit?usp=sharing
 
+Defect Log: https://docs.google.com/spreadsheets/d/1sQbnvWU1MZIwgt0YRekxqZq24jqrIhIC-pB-LOpDczo/edit?usp=sharing
 
-Time Log: https://docs.google.com/spreadsheets/d/1ZnZWze3-v8BWkhG6UbG-DKi6_Gh3Hk_-zbDt4oEi1Eo/edit?usp=sharing
-
-Defect Log: https://docs.google.com/spreadsheets/d/1d6eSZiVCmlSMt_dPw7nbapbw6CTz7TilsnyG3huVssA/edit?usp=sharing
-
+Time Log: Can be seen from Github history
 
 ## Overview
 
