@@ -13,6 +13,8 @@ This repository showcases the ROS package for the Robotic toy project.
 
 The SIP for the project can be found [here](https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing).
 
+The Planning notes for the project can be found [here](https://docs.google.com/document/d/1cuM1NgHEFEkOeJMYtaNpIpAXfJ_u0YdG9ozSTAGEVLY/edit?usp=sharing).
+
 The link to the defect log, time log, product backlog, and release backlog table are as follows:
 
 [Product Backlog](https://docs.google.com/spreadsheets/d/1XhrbZjeozz02wAhwiE5d25f-5yS15jGHrX1-cPPEQfs/edit?usp=sharing).
@@ -20,14 +22,6 @@ The link to the defect log, time log, product backlog, and release backlog table
 [Release Backlog Table](https://docs.google.com/spreadsheets/d/1TbC_kTvKK2MRH9XEX8YbNeR_NHrXO2tIK1uxxjgT04Y/edit?usp=sharing).
 
 [Defect Log](https://docs.google.com/spreadsheets/d/1sQbnvWU1MZIwgt0YRekxqZq24jqrIhIC-pB-LOpDczo/edit?usp=sharing)
-
-## Results
-
-The software is very effective and fast in tracking any tagging motion simultaneously.
-Its funtionality has been tested on multiple test videos and software has a success rate of 98%.
-
-The working output of the software can be seen in the output folder of the repository or the link below:
-https://github.com/Akshaybj0221/ENPM808X_Midterm.git
 
 ## Dependencies/Prerequiesites 
 The dependencies of this repository are:
@@ -70,6 +64,15 @@ Things done in second sprint:
 	* Make a launch file to open Gazebo world, rviz and script	
 	* Control the Turtlebot using commandline as well as dummy script.
 	* Create planning notes and update SIP tasklog as well as release backlog. 
+
+## Results
+
+The software is very effective and fast in tracking any tagging motion simultaneously.
+Its funtionality has been tested on multiple test videos and software has a success rate of 98%.
+
+The working output of the software can be seen in the output folder of the repository or the link below:
+https://github.com/Akshaybj0221/ENPM808X_Midterm.git
+
 
 ### Miscellaneous Instructions
 
