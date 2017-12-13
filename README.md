@@ -22,7 +22,7 @@ Time Log: Can be seen from Github history
 
 ## Overview
 
-C++ based Motion Tracking vision system software:
+C++ based software for toy_robot:
 
 This project is a vision system developed for the robot to track any moving object which is in the scope of robots camera periphery. There are so many applications to this project such as for intelligent planning of robot trajectory, survellience system, object tracking, movement tracking systems etc.
 
