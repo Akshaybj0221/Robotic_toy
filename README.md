@@ -9,7 +9,7 @@ This repository showcases the ROS package for the Robotic toy project.
 
 ---
 
-##SIP Process:
+## SIP Process:
 
 The SIP for the project can be found [here](https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing).
 
