@@ -11,12 +11,13 @@
 
 class ControlTurtlebot {
   private:
-    ros::NodeHandle nh;
+
     ros::Subscriber sub;
 
     int i, t, ticks;    
     int rate = 50;
-    int r = ros::Rate loop_rate(rate);		
+    ros::Rate loop_rate(rate);		
+    int r = ros::Rate loop_rate(rate);
     int n = 4;
 
     float linear_speed = 0.5;

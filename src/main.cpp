@@ -1,7 +1,7 @@
 
 #include "ControlTurtlebot.hpp"
 
-ControlTurtlebot::ControlTurtlebot(self){
+/*ControlTurtlebot::ControlTurtlebot(self){
 		
 		this->self = self;
 		ros::init(argc, argv, "ControlTurtlebotNode");
@@ -66,7 +66,7 @@ ControlTurtlebot::ControlTurtlebot(self){
 
 ControlTurtlebot::~ControlTurtlebot(){
 }
-
+*/
 void main(){
 	ros::NodeHandle nh;
 	
