@@ -3,13 +3,13 @@
 #include "ros/ros.h"
 
 ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
-
-  init(ros::NodeHandle nh);
-  shutdown(ros::NodeHandle nh);
+  
+  init(nh);
+  shutdown(nh);
 
 }
 
-void ControlTurtlebot::init(nh){
+int ControlTurtlebot::init(nh){
 
 	for(int i=0;i<=n;i++){
 		geomtery_msgs::Twist move_cmd;
@@ -43,13 +43,17 @@ void ControlTurtlebot::init(nh){
 	while(ros::ok()){
 		cmd_vel.publish(move_cmd);
 		rate.sleep();
+
+	return 0;
 }
 
-void ControlTurtlebot::shutdown(nh){
+int ControlTurtlebot::shutdown(nh){
 
 	ROS_INFO("Stopping Turtlebot");
 	cmd_vel.publish(geometry_msgs::Twist);
 	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
+
+	return 0;
 }
 
 ControlTurtlebot::~ControlTurtlebot(){
