@@ -19,8 +19,9 @@ int main(int argc, char **argv){
 	ros::Publisher cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10);
 
 	int rate = 50;
-	ros::Rate loop_rate(rate);
+//	ros::Rate loop_rate(rate);
 	//r	
+        ros::Rate r(rate);
 
 	while(ros::ok()){
 	float linear_speed = 0.5;
@@ -37,7 +38,7 @@ int main(int argc, char **argv){
 
 	int ticks;
 
-	for(int i=0;i<=n;i++){
+	for(int i=0;i<n;i++){
 		geometry_msgs::Twist move_cmd;
 		move_cmd.linear.x = linear_speed;
 		ROS_INFO("Move forward");
@@ -45,11 +46,11 @@ int main(int argc, char **argv){
 		ticks = int(linear_duration * rate);
 		for(int t=0; t<=ticks; t++){
 			cmd_vel.publish(move_cmd);
-//			rate.sleep();
+			r.sleep();
 		}
 
-		geometry_msgs::Twist move_cmd;
-		cmd_vel.publish(move_cmd);
+
+//		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 		ROS_INFO("Turn");
 		
@@ -57,26 +58,26 @@ int main(int argc, char **argv){
 		ticks = int(rad * rate);
 		for(int t=0; t<=ticks; t++){
 			cmd_vel.publish(move_cmd);
-//			r.sleep();
-		}	
+			r.sleep();
+		}
 
-		geometry_msgs::Twist move_cmd;
-		cmd_vel.publish(move_cmd);
-		ros::Duration(1).sleep();
 	}
-
-//	cmd_vel.publish(move_cmd);	//instead if move_cmd it was "Twist()", so take care)
 	
-//	while(ros::ok()){
-//		cmd_vel.publish(move_cmd);
-//		rate.sleep();
-//}
+	ros::spinOnce();
+	r.sleep();
 
+
+	geometry_msgs::Twist move_cmd;
 	ROS_INFO("Stopping Turtlebot");
+
 	cmd_vel.publish(move_cmd);
 	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
+	
+	ros::shutdown();
 	}
 	
+	
+
 return 0;
 }
 
@@ -87,7 +88,7 @@ return 0;
 //ControlTurtlebot::~ControlTurtlebot(){
 //}
 
-*/
+
 
 
 
