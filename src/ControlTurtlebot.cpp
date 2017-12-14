@@ -1,8 +1,7 @@
 
 #include "ControlTurtlebot.hpp"
 
-class ControlTurtlebot(){
-	ControlTurtlebot(self){
+class ControlTurtlebot::ControlTurtlebot(self){
 
 //		rospy.init_node('ControlTurtlebotNode', anonymous=False)
 //		rospy.loginfo("Ctrl + C to exit/stop")
@@ -112,17 +111,21 @@ if __name__ == '__main__':
 			geomtery_msgs::Twist move_cmd;
 			self.cmd_vel.publish(move_cmd);
 			ros::Duration(1).sleep();
-	
-		self.cmd_vel.publish(move_cmd);	//instead if move_cmd it was "Twist()", so take care)
 		}
+
+		self.cmd_vel.publish(move_cmd);	//instead if move_cmd it was "Twist()", so take care)
+		
 		while(ros::ok()){
 			self.cmd_vel.publish(move_cmd);
 			rate.sleep();
+	}
 
-	void shutdown(self):
+	void shutdown(self){
 		ROS_INFO("Stopping Turtlebot");
 		self.cmd_vel.publish(geometry_msgs::Twist);
 		ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
+	}
+
 
 void main(){
 	try{
