@@ -1,134 +1,32 @@
-
-//#include "ControlTurtlebot.hpp"
-
-
-
-#include <iostream>
-#include <sstream>
-#include "ros/ros.h"
-#include "geometry_msgs/Twist.h"
-#include "std_msgs/String.h"
-
 int main(int argc, char **argv){
 
-	ros::init(argc, argv, "ControlTurtlebotNode");
-	
-	ros::NodeHandle nh;
-	ROS_INFO("Press Ctrl+C to exit/stop");
+	//initialize the ROS node
+	ros::init(argc, argv, "free_space_navigation_node");
+	ros::NodeHandle n;
 
-	ros::Publisher cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10);
+	//subscribe to the odometry topic to get the position of the robot
+	pose_subscriber = n.subscribe("/odom", 10, poseCallback);
+	//register the velocity publisher
+	pub =n.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 1000);
 
-	int rate = 50;
-//	ros::Rate loop_rate(rate);
-	//r	
-        ros::Rate r(rate);
-
-	while(ros::ok()){
-	float linear_speed = 0.5;
-	float goal_distance = 1.0;
-	float linear_duration = goal_distance / linear_speed;
-	
-	int n = 4;
-	float angle = 360/n;	
-	float pi = 3.14;
-	float rad = angle*(pi/180);
-
-	float angular_speed = 1.0;
-	float angular_duration = (rad / angular_speed);
-
-	int ticks;
-
-	for(int i=0;i<n;i++){
-		geometry_msgs::Twist move_cmd;
-		move_cmd.linear.x = linear_speed;
-		move_cmd.angular.z = 0;				
-		ROS_INFO("Move forward");
-
-		ticks = int(linear_duration * rate);
-		for(int t=0; t<=ticks; t++){
-			cmd_vel.publish(move_cmd);
-			r.sleep();
-		}
-
-
-//		cmd_vel.publish(move_cmd);
-		ros::Duration(1).sleep();
-		ROS_INFO("Turn");
-		move_cmd.linear.x = 0;
-		move_cmd.angular.z = angular_speed + 0.10;
-		ticks = int(rad * rate);
-		for(int t=0; t<=ticks; t++){
-			cmd_vel.publish(move_cmd);
-			r.sleep();
-		}
-		
-		ROS_INFO("Stopping Turtlebot");
-		move_cmd.linear.x = 0;
-		move_cmd.angular.z = 0;
-		cmd_vel.publish(move_cmd);
-		ros::Duration(1).sleep();
-
-	}
-	
 	ros::spinOnce();
-	r.sleep();
+	ros::Rate loop(1);
+	loop.sleep();loop.sleep();loop.sleep();//loop.sleep();loop.sleep();
+	ros::spinOnce();
 
+	while (ros::ok()){
+		ros::spinOnce();loop.sleep();
+		printf("robot initial pose: (%.2f, %.2f, %.2f)\n",turtlebot_odom_pose.pose.pose.position.x,turtlebot_odom_pose.pose.pose.position.y,radian2degree(tf::getYaw(turtlebot_odom_pose.pose.pose.orientation)));
 
-	geometry_msgs::Twist move_cmd;
-	ROS_INFO("Stopping Turtlebot");
+		double velocity = 0.3;
 
-	cmd_vel.publish(move_cmd);
-	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
-	
-	ros::shutdown();
+		moveShape(1.0, 3, 120, velocity);
+		
+		//exercise: try to remove the ros::SpinOnce() and observe and comment the result
+		ros::spinOnce();loop.sleep();ros::spinOnce();
+		printf("robot final pose: (%.2f, %.2f, %.2f)\n",turtlebot_odom_pose.pose.pose.position.x,turtlebot_odom_pose.pose.pose.position.y,radian2degree(tf::getYaw(turtlebot_odom_pose.pose.pose.orientation)));
+		return 0;
 	}
-	
-	
 
-return 0;
+	return 0;
 }
-
-
-
-
-
-//ControlTurtlebot::~ControlTurtlebot(){
-//}
-
-
-
-
-
-
-
-
-/*
-void main(int argc, char **argv){
-
-	cout<<"----------------------In main------------------------";
-
-	ros::init(argc, argv, "ControlTurtlebotNode");
-	ros::NodeHandle nh;
-	
-	ROS_INFO("Press Ctrl+C to exit/stop");
-	
-	ros::Publisher cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10);
-
-	int r = ros::Rate loop_rate(50);
-	
-
-	ControlTurtlebot self(nh);
-
-//	self.init(nh);
-//	self.shutdown(nh);
-
-//	ros::shutdown(self.shutdown());		
-
-	
-//	self.init();
-//	self.shutdown();
-
-}*/
-
-
-
