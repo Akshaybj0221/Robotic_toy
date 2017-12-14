@@ -9,7 +9,7 @@ ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
 
 }
 
-int ControlTurtlebot::init(nh){
+int ControlTurtlebot::init(ros::NodeHandle nh){
 
 	for(int i=0;i<=n;i++){
 		geomtery_msgs::Twist move_cmd;
@@ -47,7 +47,7 @@ int ControlTurtlebot::init(nh){
 	return 0;
 }
 
-int ControlTurtlebot::shutdown(nh){
+int ControlTurtlebot::shutdown(ros::NodeHandle nh){
 
 	ROS_INFO("Stopping Turtlebot");
 	cmd_vel.publish(geometry_msgs::Twist);
