@@ -35,10 +35,10 @@ class ControlTurtlebot {
 
   public:
     ControlTurtlebot(ros::NodeHandle nh);
-    ~ControlTurtlebot(ros::NodeHandle nh);
+    ~ControlTurtlebot();
     
-    void init(ros::NodeHandle nh);
-    void shutdown(ros::NodeHandle nh);
+    void init();
+    void shutdown();
 };
 
 #endif
