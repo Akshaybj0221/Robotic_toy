@@ -37,8 +37,8 @@ class ControlTurtlebot {
     ControlTurtlebot(ros::NodeHandle nh);
     ~ControlTurtlebot();
     
-    void init();
-    void shutdown();
+    void init(ros::NodeHandle nh);
+    void shutdown(ros::NodeHandle nh);
 };
 
 #endif
