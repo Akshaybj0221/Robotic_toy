@@ -2,17 +2,13 @@
 #include "ControlTurtlebot.hpp"
 #include "ros/ros.h"
 
-ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
+ControlTurtlebot::ControlTurtlebot(){
 
 //		this->self = self;
-		ros::init(argc, argv, "ControlTurtlebotNode");
-		ROS_INFO("Press Ctrl+C to exit/stop");
-		ros::shutdown(self.shutdown());		
-		ros::Publisher self.cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10)
 }
 
-void ControlTurtlebot::init(){
-
+void ControlTurtlebot::init(ros::NodeHandle nh){
+	ros::Rate loop_rate(50);
 	for(int i=0;i<=n;i++){
 		geomtery_msgs::Twist move_cmd;
 		move_cmd.linear.x = linear_speed;
@@ -47,7 +43,8 @@ void ControlTurtlebot::init(){
 		rate.sleep();
 }
 
-void ControlTurtlebot::shutdown(){
+void ControlTurtlebot::shutdown(ros::NodeHandle nh){
+	ros::Rate loop_rate(50);
 	ROS_INFO("Stopping Turtlebot");
 	self.cmd_vel.publish(geometry_msgs::Twist);
 	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp

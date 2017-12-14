@@ -33,11 +33,11 @@ class ControlTurtlebot {
     ros::Publisher cmd_vel;
 
   public:
-    ControlTurtlebot(ros::NodeHandle nh);
+    ControlTurtlebot();
     ~ControlTurtlebot();
     
-    void init();
-    void shutdown();
+    void init(ros::NodeHandle nh);
+    void shutdown(ros::NodeHandle nh);
 };
 
 #endif
