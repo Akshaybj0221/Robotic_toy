@@ -64,16 +64,15 @@ ControlTurtlebot::ControlTurtlebot(self){
 		ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
 	}
 
-ControlTurtlebot::~ControlTurtlebot(self){
+ControlTurtlebot::~ControlTurtlebot(){
 }
 
 void main(){
+	ros::NodeHandle nh;
+	
+	ControlTurtlebot self(nh);
+	
+	self.init();
+	self.shutdown();
 
-	ControlTurtlebot self;
-
-	try{
-		ControlTurtlebot();
-	} catch{
-		ROS_INFO("End of Turtlebot Trip");
-	}
 }
