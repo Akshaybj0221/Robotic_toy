@@ -4,8 +4,8 @@
 
 ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
 
-  init(nh);
-  shutdown(nh);
+  init(ros::NodeHandle nh);
+  shutdown(ros::NodeHandle nh);
 
 }
 
