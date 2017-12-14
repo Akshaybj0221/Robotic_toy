@@ -41,6 +41,7 @@ int main(int argc, char **argv){
 	for(int i=0;i<n;i++){
 		geometry_msgs::Twist move_cmd;
 		move_cmd.linear.x = linear_speed;
+		move_cmd.angular.z = 0;				
 		ROS_INFO("Move forward");
 
 		ticks = int(linear_duration * rate);
@@ -51,9 +52,9 @@ int main(int argc, char **argv){
 
 
 //		cmd_vel.publish(move_cmd);
-		ros::Duration(1).sleep();
+		ros::Duration(1.2).sleep();
 		ROS_INFO("Turn");
-		
+		move_cmd.linear.x = 0;
 		move_cmd.angular.z = angular_speed + 0.10;
 		ticks = int(rad * rate);
 		for(int t=0; t<=ticks; t++){
