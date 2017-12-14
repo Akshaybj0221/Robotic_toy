@@ -16,7 +16,6 @@ class ControlTurtlebot {
 
     int i, t, ticks;    
     int rate = 50;
-    ros::Rate loop_rate(50);
 //    ros::Rate r = ros::Rate loop_rate(50);		
 
     int n = 4;

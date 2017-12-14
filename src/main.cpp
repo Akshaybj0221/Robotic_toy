@@ -71,19 +71,22 @@ void main(int argc, char **argv){
 
 	ros::init(argc, argv, "ControlTurtlebotNode");
 	ros::NodeHandle nh;
-	ControlTurtlebot self;
 	
 	ROS_INFO("Press Ctrl+C to exit/stop");
 	
-	ros::Publisher self.cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10)
+	ros::Publisher cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10);
 
-	self.init(nh);
-	self.shutdown(nh);
+	int r = ros::Rate loop_rate(50);
 
-	ros::shutdown(self.shutdown());		
+	ControlTurtlebot self(nh);
+
+//	self.init(nh);
+//	self.shutdown(nh);
+
+//	ros::shutdown(self.shutdown());		
 
 	
-	self.init();
-	self.shutdown();
+//	self.init();
+//	self.shutdown();
 
 }
