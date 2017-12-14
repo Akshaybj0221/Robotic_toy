@@ -126,7 +126,7 @@ include_directories(
 ##add_executable(ControlTurtlebotNode src/main.cpp)
 ##target_link_libraries(ControlTurtlebotNode ${catkin_LIBRARIES})
 
-add_executable(free_space_navigation_node src/main.cpp)
+add_executable(free_space_navigation_node src/test.cpp)
 target_link_libraries(free_space_navigation_node ${catkin_LIBRARIES})
 
 
