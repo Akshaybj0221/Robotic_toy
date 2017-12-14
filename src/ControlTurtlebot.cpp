@@ -1,6 +1,9 @@
 #include "ControlTurtlebot.hpp"
 
-void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message){
+
+
+void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr& pose_message){
+
 	turtlebot_odom_pose.pose.pose.position.x=pose_message->pose.pose.position.x;
 	turtlebot_odom_pose.pose.pose.position.y=pose_message->pose.pose.position.y;
 	turtlebot_odom_pose.pose.pose.position.z=pose_message->pose.pose.position.z;
@@ -9,7 +12,9 @@ void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr & pose_me
 	turtlebot_odom_pose.pose.pose.orientation.x=pose_message->pose.pose.orientation.x;
 	turtlebot_odom_pose.pose.pose.orientation.y=pose_message->pose.pose.orientation.y;
 	turtlebot_odom_pose.pose.pose.orientation.z=pose_message->pose.pose.orientation.z;
+
 }
+
 
 
 void ControlTurtlebot::moveShape(double sideLength, double totalSides, double angle, double velocity){

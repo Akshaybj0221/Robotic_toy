@@ -29,10 +29,11 @@ class ControlTurtlebot {
   ros::NodeHandle n;
 
 
-
   //callback function for the /odom topic to update the pose
-  void poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message);
+  void poseCallback(const nav_msgs::Odometry::ConstPtr& pose_message);
   
+
+
   //the function that makes the robot moves forward and backward
   void move_linear(double speed, double distance, bool isForward);
   

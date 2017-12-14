@@ -1,6 +1,8 @@
 #include "ControlTurtlebot.hpp"
 
 
+
+
 int main(int argc, char **argv){
 
 	//initialize the ROS node
@@ -9,8 +11,8 @@ int main(int argc, char **argv){
 
 	ControlTurtlebot obj;
 
-	//subscribe to the odometry topic to get the position of the robot
-	obj.pose_subscriber = n.subscribe("/odom", 10, obj.poseCallback);
+  	//subscribe to the odometry topic to get the position of the robot
+  	obj.pose_subscriber = n.subscribe("/odom", 10, ControlTurtlebot::poseCallback);
 	//register the velocity publisher
 	obj.pub =n.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 1000);
 
@@ -35,3 +37,6 @@ int main(int argc, char **argv){
 
 	return 0;
 }
+
+
+
