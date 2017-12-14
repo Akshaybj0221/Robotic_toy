@@ -1,6 +1,6 @@
 #include "ControlTurtlebot.hpp"
 
-void poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message){
+void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message){
 	turtlebot_odom_pose.pose.pose.position.x=pose_message->pose.pose.position.x;
 	turtlebot_odom_pose.pose.pose.position.y=pose_message->pose.pose.position.y;
 	turtlebot_odom_pose.pose.pose.position.z=pose_message->pose.pose.position.z;
@@ -12,7 +12,7 @@ void poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message){
 }
 
 
-void moveShape(double sideLength, double totalSides, double angle, double velocity){
+void ControlTurtlebot::moveShape(double sideLength, double totalSides, double angle, double velocity){
 	for (int i=0;i<totalSides;i++){
 		move_linear(velocity, sideLength, true);
 		rotate (velocity, degree2radian(angle), true);
@@ -20,7 +20,7 @@ void moveShape(double sideLength, double totalSides, double angle, double veloci
 }
 
 
-void move_linear(double speed, double distance, bool isForward){
+void ControlTurtlebot::move_linear(double speed, double distance, bool isForward){
 	//delcare a Twist message to send velocity commands
 	geometry_msgs::Twist VelocityMessage;
 	//initial pose of the turtlebot before start moving
@@ -53,7 +53,7 @@ void move_linear(double speed, double distance, bool isForward){
 
 
 
-double rotate(double angular_velocity, double radians,  bool clockwise)
+double ControlTurtlebot::rotate(double angular_velocity, double radians,  bool clockwise)
 {
 
 	//delcare a Twist message to send velocity commands
@@ -136,13 +136,13 @@ double rotate(double angular_velocity, double radians,  bool clockwise)
 }
 
 /* makes conversion from radian to degree */
-double radian2degree(double radianAngle){
+double ControlTurtlebot::radian2degree(double radianAngle){
 	return (radianAngle*57.2957795);
 }
 
 
 /* makes conversion from degree to radian */
-double degree2radian(double degreeAngle){
+double ControlTurtlebot::degree2radian(double degreeAngle){
 	return (degreeAngle/57.2957795);
 }
 
