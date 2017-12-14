@@ -46,7 +46,9 @@ int main(int argc, char **argv){
 		ticks = int(linear_duration * rate);
 		for(int t=0; t<=ticks; t++){
 			cmd_vel.publish(move_cmd);
-			r.sleep();
+			ros::Duration(1).sleep();
+
+//			r.sleep();
 		}
 
 
