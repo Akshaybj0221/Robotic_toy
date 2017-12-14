@@ -67,10 +67,18 @@
 ControlTurtlebot::~ControlTurtlebot(){
 }
 */
-void main(){
+void main(int argc, char **argv){
+
+	ros::init(argc, argv, "ControlTurtlebotNode");
 	ros::NodeHandle nh;
-	
 	ControlTurtlebot self(nh);
+	
+	ROS_INFO("Press Ctrl+C to exit/stop");
+	
+	ros::Publisher self.cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10)
+
+	ros::shutdown(self.shutdown());		
+
 	
 	self.init();
 	self.shutdown();

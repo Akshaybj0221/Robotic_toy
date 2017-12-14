@@ -1,5 +1,6 @@
 
 #include "ControlTurtlebot.hpp"
+#include "ros/ros.h"
 
 ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
 
