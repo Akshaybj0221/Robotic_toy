@@ -7,7 +7,15 @@ project(toy_robot)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs geometry_msgs roscpp rospy)
+find_package(catkin REQUIRED COMPONENTS 
+message_generation 
+std_msgs 
+sensor_msgs 
+geometry_msgs 
+roscpp 
+rospy 
+tf 
+nav_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -101,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs 
 catkin_package(
   INCLUDE_DIRS include
 ##  LIBRARIES toy_robot
-  CATKIN_DEPENDS other_catkin_pkg roscpp rospy std_msgs geometry_msgs
+  CATKIN_DEPENDS other_catkin_pkg roscpp rospy std_msgs geometry_msgs tf sensor_msgs nav_msgs
 )
 
 ###########
@@ -116,8 +124,11 @@ include_directories(
 )
 
 add_executable(ControlTurtlebotNode src/main.cpp)
-
 target_link_libraries(ControlTurtlebotNode ${catkin_LIBRARIES})
+
+add_executable(free_space_navigation_node src/test.cpp)
+target_link_libraries(free_space_navigation_node ${catkin_LIBRARIES})
+
 
 ## Declare a C++ library
 #   add_library(${PROJECT_NAME}

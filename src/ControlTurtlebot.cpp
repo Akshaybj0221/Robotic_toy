@@ -44,7 +44,7 @@ int ControlTurtlebot::init(ros::NodeHandle nh){
 		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 		
-		move_cmd.angular.z = angular_speed + 0.10;
+		move_cmd.angular.z = angular_speed;
 		ticks = int(rad * rate);
 	
 		for(int t=0; t<=ticks; t++){

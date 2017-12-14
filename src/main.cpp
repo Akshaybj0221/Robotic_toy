@@ -52,7 +52,7 @@ int main(int argc, char **argv){
 
 
 //		cmd_vel.publish(move_cmd);
-		ros::Duration(1.2).sleep();
+		ros::Duration(1).sleep();
 		ROS_INFO("Turn");
 		move_cmd.linear.x = 0;
 		move_cmd.angular.z = angular_speed + 0.10;
@@ -61,6 +61,12 @@ int main(int argc, char **argv){
 			cmd_vel.publish(move_cmd);
 			r.sleep();
 		}
+		
+		ROS_INFO("Stopping Turtlebot");
+		move_cmd.linear.x = 0;
+		move_cmd.angular.z = 0;
+		cmd_vel.publish(move_cmd);
+		ros::Duration(1).sleep();
 
 	}
 	
