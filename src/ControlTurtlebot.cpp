@@ -18,7 +18,7 @@ void ControlTurtlebot::init(){
 		ticks = int(linear_duration * rate);
 
 		for(int t=0; t<=ticks; t++){
-			self.cmd_vel.publish(move_cmd);
+			cmd_vel.publish(move_cmd);
 			r.sleep();
 		}
 
