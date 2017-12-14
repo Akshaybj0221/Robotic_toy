@@ -1,7 +1,7 @@
 
 #include "ControlTurtlebot.hpp"
 
-ControlTurtlebot::ControlTurtlebot(self){
+ControlTurtlebot::ControlTurtlebot(ros::NodeHandle nh){
 		
 		rate = 50;
 		r = ros::Rate loop_rate(rate);		
@@ -16,7 +16,7 @@ ControlTurtlebot::ControlTurtlebot(self){
 		angular_duration = (rad / angular_speed);
 
 
-		this->self = self;
+//		this->self = self;
 		ros::init(argc, argv, "ControlTurtlebotNode");
 		ROS_INFO("Press Ctrl+C to exit/stop");
 		ros::shutdown(self.shutdown());		
