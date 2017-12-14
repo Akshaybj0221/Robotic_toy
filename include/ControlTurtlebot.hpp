@@ -16,8 +16,9 @@ class ControlTurtlebot {
 
     int i, t, ticks;    
     int rate = 50;
-//    ros::Rate r = ros::Rate loop_rate(50);		
     ros::Rate loop_rate(50);
+//    ros::Rate r = ros::Rate loop_rate(50);		
+
     int n = 4;
 
     float linear_speed = 0.5;
@@ -33,8 +34,8 @@ class ControlTurtlebot {
     ros::Publisher cmd_vel;
 
   public:
-    ControlTurtlebot();
-    ~ControlTurtlebot();
+    ControlTurtlebot(ros::NodeHandle nh);
+    ~ControlTurtlebot(ros::NodeHandle nh);
     
     void init(ros::NodeHandle nh);
     void shutdown(ros::NodeHandle nh);
