@@ -6,8 +6,8 @@
 #include <iostream>
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
-
 #include "std_msgs/Float64.h"
+#include "std_msgs/String.h"
 
 class ControlTurtlebot {
   private:
@@ -16,7 +16,8 @@ class ControlTurtlebot {
 
     int i, t, ticks;    
     int rate = 50;
-    ros::Rate r = ros::Rate loop_rate(rate);		
+ //   ros::Rate r = ros::Rate loop_rate(rate);		
+    ros::Rate r(rate);
     int n = 4;
 
     float linear_speed = 0.5;
