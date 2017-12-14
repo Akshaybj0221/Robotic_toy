@@ -191,10 +191,10 @@ target_link_libraries(ControlTurtlebotNode ${catkin_LIBRARIES})
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_toy_robot.cpp)
  if(CATKIN_ENABLE_TESTING)
    find_package(rostest REQUIRED)
-   target_link_libraries(${catkin_LIBRARIES})
+#   target_link_libraries(${catkin_LIBRARIES})
    add_dependencies(${catkin_EXPORTED_TARGETS})
 
-# endif()
+ endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

@@ -3,25 +3,26 @@
 
 ControlTurtlebot::ControlTurtlebot(self){
 		
-		rate = 50;
-		r = ros::Rate loop_rate(rate);		
-		linear_speed = 0.5;
-		goal_distance = 1.0;
-		linear_duration = goal_distance / linear_speed;
-		angular_speed = 1.0;
-		n = 4;
-		angle = 360/n;	
-		pi = 3.14;
-		rad = angle*(pi/180);
-		angular_duration = (rad / angular_speed);
-
-
 		this->self = self;
 		ros::init(argc, argv, "ControlTurtlebotNode");
 		ROS_INFO("Press Ctrl+C to exit/stop");
 		ros::shutdown(self.shutdown());		
 		ros::Publisher self.cmd_vel = nh.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 10)
-	
+
+		rate = 50;
+		r = ros::Rate loop_rate(rate);
+		
+		linear_speed = 0.5;
+		goal_distance = 1.0;
+		linear_duration = goal_distance / linear_speed;
+		angular_speed = 1.0;
+
+		n = 4;
+		angle = 360/n;	
+		pi = 3.14;
+		rad = angle*(pi/180);
+
+		angular_duration = (rad / angular_speed);
 
 		for(int i=0;i<=n;i++){
 			geomtery_msgs::Twist move_cmd;
@@ -67,6 +68,9 @@ ControlTurtlebot::~ControlTurtlebot(self){
 }
 
 void main(){
+
+	ControlTurtlebot self;
+
 	try{
 		ControlTurtlebot();
 	} catch{

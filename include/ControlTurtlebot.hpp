@@ -14,18 +14,18 @@ class ControlTurtlebot {
     ros::NodeHandle nh;
     ros::Subscriber sub;
 
+    int rate, r, n, i, t, ticks;
+    float linear_speed, goal_distance, linear_duration, angular_speed, angle, pi, rad, angular_duration;
+    
+    geometry_msgs::Twist move_cmd;
+    ros::Publisher cmd_vel;
+
   public:
     ControlTurtlebot();
     ~ControlTurtlebot();
     
-    int rate, r, n, i, t, ticks;
-    float linear_speed, goal_distance, linear_duration, angular_speed, angle, pi, rad, angular_duration;
-    
-    geometry_msg::Twist move_cmd;
-    ros::Publisher cmd_vel;   
-    
-    void init(self);
-    void shutdown(self);
+    void init();
+    void shutdown();
 };
 
 #endif
