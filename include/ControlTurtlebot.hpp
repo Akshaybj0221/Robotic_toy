@@ -10,7 +10,7 @@
 #include "std_msgs/String.h"
 
 class ControlTurtlebot {
-  private:
+  public:
 
     ros::Subscriber sub;
 
@@ -32,7 +32,6 @@ class ControlTurtlebot {
     geometry_msgs::Twist move_cmd;
     ros::Publisher cmd_vel;
 
-  public:
     ControlTurtlebot(ros::NodeHandle);
     ~ControlTurtlebot();
     
