@@ -100,6 +100,7 @@ find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs 
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
+##  LIBRARIES toy_robot
   CATKIN_DEPENDS other_catkin_pkg roscpp rospy std_msgs geometry_msgs
 )
 

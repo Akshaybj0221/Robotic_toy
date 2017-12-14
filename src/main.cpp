@@ -23,31 +23,32 @@ int main(int argc, char **argv){
 	//r	
 
 	while(ros::ok()){
-	linear_speed = 0.5;
-	goal_distance = 1.0;
-	linear_duration = goal_distance / linear_speed;
+	float linear_speed = 0.5;
+	float goal_distance = 1.0;
+	float linear_duration = goal_distance / linear_speed;
 	
-	n = 4;
-	angle = 360/n;	
-	pi = 3.14;
-	rad = angle*(pi/180);
+	int n = 4;
+	float angle = 360/n;	
+	float pi = 3.14;
+	float rad = angle*(pi/180);
 
-	angular_speed = 1.0;
-	angular_duration = (rad / angular_speed);
+	float angular_speed = 1.0;
+	float angular_duration = (rad / angular_speed);
 
+	int ticks;
 
 	for(int i=0;i<=n;i++){
-		geomtery_msgs::Twist move_cmd;
+		geometry_msgs::Twist move_cmd;
 		move_cmd.linear.x = linear_speed;
 		ROS_INFO("Move forward");
 
 		ticks = int(linear_duration * rate);
 		for(int t=0; t<=ticks; t++){
 			cmd_vel.publish(move_cmd);
-			rate.sleep();
+//			rate.sleep();
 		}
 
-		geomtery_msgs::Twist move_cmd;
+		geometry_msgs::Twist move_cmd;
 		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 		ROS_INFO("Turn");
@@ -56,10 +57,10 @@ int main(int argc, char **argv){
 		ticks = int(rad * rate);
 		for(int t=0; t<=ticks; t++){
 			cmd_vel.publish(move_cmd);
-			r.sleep();
+//			r.sleep();
 		}	
 
-		geomtery_msgs::Twist move_cmd;
+		geometry_msgs::Twist move_cmd;
 		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 	}
@@ -72,7 +73,7 @@ int main(int argc, char **argv){
 //}
 
 	ROS_INFO("Stopping Turtlebot");
-	self.cmd_vel.publish(geometry_msgs::Twist);
+	cmd_vel.publish(move_cmd);
 	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
 	}
 	
@@ -85,6 +86,7 @@ return 0;
 
 //ControlTurtlebot::~ControlTurtlebot(){
 //}
+
 */
 
 
