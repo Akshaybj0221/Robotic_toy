@@ -14,8 +14,8 @@
 class ControlTurtlebot {
   
 
-  private:
-   
+  public:
+
   #define ANGULAR_VELOCITY_MINIMUM_THRESHOLD 0.4
   #define pi 22/7
   
@@ -26,8 +26,9 @@ class ControlTurtlebot {
   //global variable to update the position of the robot
   nav_msgs::Odometry turtlebot_odom_pose;
 
+  ros::NodeHandle n;
 
-  public:
+
 
   //callback function for the /odom topic to update the pose
   void poseCallback(const nav_msgs::Odometry::ConstPtr & pose_message);

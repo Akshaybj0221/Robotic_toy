@@ -10,7 +10,7 @@ int main(int argc, char **argv){
 	ControlTurtlebot obj;
 
 	//subscribe to the odometry topic to get the position of the robot
-	obj.pose_subscriber = n.subscribe("/odom", 10, poseCallback);
+	obj.pose_subscriber = n.subscribe("/odom", 10, obj.poseCallback);
 	//register the velocity publisher
 	obj.pub =n.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 1000);
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv){
 
 	while (ros::ok()){
 		ros::spinOnce();loop.sleep();
-		printf("robot initial pose: (%.2f, %.2f, %.2f)\n",turtlebot_odom_pose.pose.pose.position.x,turtlebot_odom_pose.pose.pose.position.y,radian2degree(tf::getYaw(turtlebot_odom_pose.pose.pose.orientation)));
+		printf("robot initial pose: (%.2f, %.2f, %.2f)\n", obj.turtlebot_odom_pose.pose.pose.position.x, obj.turtlebot_odom_pose.pose.pose.position.y, obj.radian2degree(tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
 
 		double velocity = 0.3;
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv){
 		
 		//exercise: try to remove the ros::SpinOnce() and observe and comment the result
 		ros::spinOnce();loop.sleep();ros::spinOnce();
-		printf("robot final pose: (%.2f, %.2f, %.2f)\n",turtlebot_odom_pose.pose.pose.position.x,turtlebot_odom_pose.pose.pose.position.y,radian2degree(tf::getYaw(turtlebot_odom_pose.pose.pose.orientation)));
+		printf("robot final pose: (%.2f, %.2f, %.2f)\n", obj.turtlebot_odom_pose.pose.pose.position.x, obj.turtlebot_odom_pose.pose.pose.position.y, obj.radian2degree(tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
 		return 0;
 	}
 
