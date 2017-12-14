@@ -7,7 +7,7 @@ project(toy_robot)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS message_generation std_msgs sensor_msgs geometry_msgs roscpp rospy)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -99,10 +99,8 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES toy_robot
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  CATKIN_DEPENDS other_catkin_pkg roscpp rospy std_msgs geometry_msgs
 )
 
 ###########
@@ -112,12 +110,16 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-# ${catkin_INCLUDE_DIRS}
+ include
+ ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(ControlTurtlebotNode src/ControlTurtlebot.cpp)
+
+target_link_libraries(ControlTurtlebotNode ${catkin_LIBRARIES})
+
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
+#   add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/toy_robot.cpp
 # )
 
@@ -187,8 +189,11 @@ include_directories(
 
 ## Add gtest based cpp test target and link libraries
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_toy_robot.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
+ if(CATKIN_ENABLE_TESTING)
+   find_package(rostest REQUIRED)
+   target_link_libraries(${catkin_LIBRARIES})
+   add_dependencies(${catkin_EXPORTED_TARGETS})
+
 # endif()
 
 ## Add folders to be run by python nosetests
