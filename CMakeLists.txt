@@ -114,7 +114,7 @@ include_directories(
  ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(ControlTurtlebotNode src/ControlTurtlebot.cpp)
+add_executable(ControlTurtlebotNode src/main.cpp)
 
 target_link_libraries(ControlTurtlebotNode ${catkin_LIBRARIES})
 
