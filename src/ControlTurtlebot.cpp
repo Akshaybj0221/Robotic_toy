@@ -23,42 +23,36 @@ void ControlTurtlebot::init(){
 		}
 
 		geomtery_msgs::Twist move_cmd;
-		self.cmd_vel.publish(move_cmd);
+		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 		
 		move_cmd.angular.z = angular_speed + 0.10;
 		ticks = int(rad * rate);
 	
 		for(int t=0; t<=ticks; t++){
-			self.cmd_vel.publish(move_cmd);
+			cmd_vel.publish(move_cmd);
 			r.sleep();
 		}	
 		geomtery_msgs::Twist move_cmd;
-		self.cmd_vel.publish(move_cmd);
+		cmd_vel.publish(move_cmd);
 		ros::Duration(1).sleep();
 	}
 
-	self.cmd_vel.publish(move_cmd);	//instead if move_cmd it was "Twist()", so take care)
+	cmd_vel.publish(move_cmd);	//instead if move_cmd it was "Twist()", so take care)
 	
 	while(ros::ok()){
-		self.cmd_vel.publish(move_cmd);
+		cmd_vel.publish(move_cmd);
 		rate.sleep();
 }
 
 void ControlTurtlebot::shutdown(){
 
 	ROS_INFO("Stopping Turtlebot");
-	self.cmd_vel.publish(geometry_msgs::Twist);
+	cmd_vel.publish(geometry_msgs::Twist);
 	ros::Duration(1).sleep();	//Here i have used the replacement for the same Twist() in cpp
 }
 
-ControlTurtlebot::~ControlTurtlebot(self){
+ControlTurtlebot::~ControlTurtlebot(){
 }
 
-void main(){
-	try{
-		ControlTurtlebot();
-	} catch{
-		ROS_INFO("End of Turtlebot Trip");
-	}
-}
+
