@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(toy_robot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+#add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -14,7 +14,7 @@ sensor_msgs
 geometry_msgs 
 roscpp 
 rospy 
-tf 
+tf
 nav_msgs)
 
 ## System dependencies are found with CMake's conventions
@@ -51,18 +51,18 @@ nav_msgs)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  input.msg
+#add_message_files(
+#  FILES
+#  input.msg
 #   Message2.msg
-)
+#)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
+add_service_files(
+   FILES
+   input.srv
 #   Service2.srv
-# )
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(

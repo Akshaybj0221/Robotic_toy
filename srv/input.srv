@@ -1,5 +1,3 @@
-double totalSidesIn
-
+int64 totalSidesIn
 ---
-
-double totalSidesOut
+int64 totalSidesOut
