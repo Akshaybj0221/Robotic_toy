@@ -6,4 +6,7 @@
 
       <node name="free_space_navigation_node" pkg="toy_robot" type="free_space_navigation_node" output="screen"/>
 
+      <node name="input_server" pkg="toy_robot" type="input_server" output="screen"/>
+
+
 </launch>

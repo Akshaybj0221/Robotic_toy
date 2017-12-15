@@ -46,7 +46,7 @@ void ControlTurtlebot::moveShape(double sideLength, double totalSides, double an
 	std::cout<<"Inside I of moveShape func\n";		
 	if(totalSides > 1){		
 		move_linear(velocity, sideLength, true, totalSides);
-		rotate (velocity, degree2radian(angle), true);
+		rotate (velocity, degree2radian(angle-10), true);
 	}
 	else{
 		circle (velocity);
@@ -88,17 +88,17 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 		distance_moved = sqrt(pow((turtlebot_odom_pose.pose.pose.position.x-initial_turtlebot_odom_pose.pose.pose.position.x), 2) +
 				pow((turtlebot_odom_pose.pose.pose.position.y-initial_turtlebot_odom_pose.pose.pose.position.y), 2));
 
-	if((turtlebot_odom_pose.pose.pose.position.x == initial_turtlebot_odom_pose.pose.pose.position.x)||(turtlebot_odom_pose.pose.pose.position.y == initial_turtlebot_odom_pose.pose.pose.position.y)){
-	count ++;
-	}
+//	if((turtlebot_odom_pose.pose.pose.position.x == initial_turtlebot_odom_pose.pose.pose.position.x)||(turtlebot_odom_pose.pose.pose.position.y == initial_turtlebot_odom_pose.pose.pose.position.y)){
+//	count ++;
+//	}
 
-	}while((distance_moved<distance)&&(ros::ok())&&(count<totalSides));
+	}while((distance_moved<distance)&&(ros::ok()));
 
 	//finally, stop the robot when the distance is moved
 	VelocityMessage.linear.x =0;
 	pub.publish(VelocityMessage);
 	std::cout<<"Velocity message AFTER calculation"<<VelocityMessage;
-	count = 0;
+//	count = 0;
 
 }
 
@@ -107,6 +107,7 @@ double ControlTurtlebot::circle(double speed){
 	pub.publish(VelocityMessage);
 	VelocityMessage.linear.x =speed;
 	VelocityMessage.angular.z =speed;
+	return 1;
 }
 
 double ControlTurtlebot::rotate(double angular_velocity, double radians,  bool clockwise)
