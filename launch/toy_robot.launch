@@ -4,9 +4,11 @@
   	  <arg name="world_file" value="$(find toy_robot)/world/toy_world.world"/>
       </include>
 
+      <node name="input" pkg="toy_robot" type="input" output="screen" launch-prefix="xterm -e"  respawn="true"/>
+
       <node name="free_space_navigation_node" pkg="toy_robot" type="free_space_navigation_node" output="screen"/>
 
-      <node name="input_server" pkg="toy_robot" type="input_server" output="screen"/>
+      <node pkg="rviz" type="rviz" name="rviz" args="-d $(find toy_robot)/config/toy_robot.rviz"/> 
 
 
 </launch>

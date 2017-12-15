@@ -15,13 +15,20 @@ int main(int argc, char **argv){
 
 
 	ControlTurtlebot obj;
-
+//	sleep(30);
 	ros::ServiceClient client = n.serviceClient<toy_robot::input>("input");
 	toy_robot::input srv;
 	srv.request.totalSidesIn = atoll(argv[1]);
 
+	if (ros::service::waitForService("input", 1000)) {
+   	    ros::init(argc, argv, "free_space_navigation_node");
+	    ROS_INFO("The service is available!", (long int)srv.response.totalSidesOut);
+	}
+
+
 	if (client.call(srv))
 	{
+		ros::init(argc, argv, "free_space_navigation_node");		
 		ROS_INFO("Request of input service is: ", (long int)srv.response.totalSidesOut);
 	}		
 	else
@@ -31,9 +38,6 @@ int main(int argc, char **argv){
   	}
 
 
-	if (ros::service::waitForService("input", 1000)) {
-	    ROS_INFO("The service is available!", (long int)srv.response.totalSidesOut);
-	}
 
 	double totalSides = abs(srv.response.totalSidesOut);	
 
