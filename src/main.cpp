@@ -33,79 +33,94 @@
  *  This program will instantiate a free space navigation node, and  service client "input"
  *
  */
+//NOLINT
 #include "ControlTurtlebot.hpp"
 
-int main(int argc, char **argv){
-  // initialse variables needed for making the robot move in a particular polygonal trajectory
+int main(int argc, char **argv) {
+  // initialse variables needed for making the
+  // robot move in a particular polygonal trajectory
   // velocity by which robot will move
   double velocity = 0.3;
   // angle variable
   double angle;
   // length of side of the shape that the robot will move
   double sideLength = 1.0;
-  //initialize the ROS node
+  // initialize the ROS node
   ros::init(argc, argv, "free_space_navigation_node");
   // Create a nodehandle
   ros::NodeHandle n;
   // Create a class object
   ControlTurtlebot obj;
   // Create a client for service /input
-  ros::ServiceClient client = n.serviceClient<toy_robot::input>("input");
+  ros::ServiceClient client = n.serviceClient < toy_robot::input > ("input");
   // Create a service instance
   toy_robot::input srv;
   // Set the request
   srv.request.totalSidesIn = atoll(argv[1]);
   // Call the service
-	if (client.call(srv))
-	{
-		ros::init(argc, argv, "free_space_navigation_node");		
-		ROS_INFO("Request to input service is: ");
-	}		
-	else
- 	{
-    		ROS_ERROR("Failed to call service input");
-    		return 1;
-  	}
+  if (client.call(srv)) {
+    ros::init(argc, argv, "free_space_navigation_node");
+    ROS_INFO("Request to input service is: ");
+  } else {
+    ROS_ERROR("Failed to call service input");
+    return 1;
+  }
   // Wait for service to advertise
   if (ros::service::waitForService("input", 1000)) {
     ROS_INFO("The service is available!");
   }
   // Initialize response part of service message in a variable
-  double totalSides = abs(srv.response.totalSidesOut);	
-  //subscribe to the odometry topic to get the position of the robot
-  obj.pose_subscriber = n.subscribe("/odom", 10, &ControlTurtlebot::poseCallback, &obj);
-  //register the velocity publisher 
-  obj.pub =n.advertise<geometry_msgs::Twist>("mobile_base/commands/velocity", 1000);
+  double totalSides = abs(srv.response.totalSidesOut);
+  // subscribe to the odometry topic to get the position of the robot
+  obj.pose_subscriber = n.subscribe("/odom", 10,
+  &ControlTurtlebot::poseCallback, &obj);
+  // register the velocity publisher
+  obj.pub = n.advertise < geometry_msgs::Twist
+      > ("mobile_base/commands/velocity", 1000);
   ros::spinOnce();
   ros::Rate loop(1);
-  loop.sleep();loop.sleep();loop.sleep();
+  loop.sleep();
+  loop.sleep();
+  loop.sleep();
   ros::spinOnce();
-  while (ros::ok()){
-    ros::spinOnce();loop.sleep();
+  while (ros::ok()) {
+    ros::spinOnce();
+    loop.sleep();
     // Print Initial pose of the turtlebot before moving
-    printf("robot initial pose: (%.2f, %.2f, %.2f)\n", obj.turtlebot_odom_pose.pose.pose.position.x,
-    obj.turtlebot_odom_pose.pose.pose.position.y, 
-    obj.radian2degree(tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
-    // Calculate angle of turtlebot rotation depending on the number of sides given by user
-    if(totalSides > 1){
-      angle = 360/totalSides;
-      }
-    // If totalSides less than 3, then it will not form a polygon, hence commanded to form a line
-    if(totalSides <= 1){
+    printf(
+        "robot initial pose: (%.2f, %.2f, %.2f)\n",
+        obj.turtlebot_odom_pose.pose.pose.position.x,
+        obj.turtlebot_odom_pose.pose.pose.position.y,
+        obj.radian2degree(
+            tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
+    // Calculate angle of turtlebot rotation
+    // depending on the number of sides given by user
+    if (totalSides > 1) {
+      angle = 360 / totalSides;
+    }
+    // If totalSides less than 3, then it will not form
+    // a polygon, hence commanded to form a line
+    if (totalSides <= 1) {
       angle = 360;
       totalSides = 1;
-    }	
-    // Called a function which makes the robot move in the desired shape corresponding to users input of number of sides
+    }
+    // Called a function which makes the robot move in the desired
+    // shape corresponding to users input of number of sides
     obj.moveShape(sideLength, totalSides, angle, velocity);
-    ros::spinOnce();loop.sleep();ros::spinOnce();
-    // Print Final pose of the turtlebot after moving (it will be near about initial pose, but not exact as it is just a toy so need for such accuracy
-    printf("robot final pose: (%.2f, %.2f, %.2f)\n", obj.turtlebot_odom_pose.pose.pose.position.x, 
-    obj.turtlebot_odom_pose.pose.pose.position.y, 
-    obj.radian2degree(tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
+    ros::spinOnce();
+    loop.sleep();
+    ros::spinOnce();
+    // Print Final pose of the turtlebot after moving (it will be
+    // near about initial pose, but not exact as it is just a toy
+    // so need for such accuracy
+    printf(
+        "robot final pose: (%.2f, %.2f, %.2f)\n",
+        obj.turtlebot_odom_pose.pose.pose.position.x,
+        obj.turtlebot_odom_pose.pose.pose.position.y,
+        obj.radian2degree(
+            tf::getYaw(obj.turtlebot_odom_pose.pose.pose.orientation)));
     return 0;
   }
   return 0;
 }
-
-
 

@@ -33,24 +33,20 @@
  *  This program will instantiate a input server node, and  service server "input"
  *
  */
+#include <cstdlib>
 #include "ros/ros.h"
 #include "toy_robot/input.h"
-#include <cstdlib>
-
-bool add(toy_robot::input::Request  &req,
-         toy_robot::input::Response &res)
-{
+bool add(toy_robot::input::Request &req, toy_robot::input::Response &res) {// NOLINT
   // Get the service request & Update the service response
   res.totalSidesOut = req.totalSidesIn;
-  //Print request and response
-  ROS_INFO("request: x=%ld", (long int)req.totalSidesIn);
-  ROS_INFO("sending back response: [%ld]", (long int)res.totalSidesOut);
+  // Print request and response
+  ROS_INFO("request: x=%ld", (long int) req.totalSidesIn);// NOLINT
+  ROS_INFO("sending back response: [%ld]", (long int) res.totalSidesOut);// NOLINT
   return true;
 }
 
-int main(int argc, char **argv)
-{
-  //initialize the ROS node
+int main(int argc, char **argv) {
+  // initialize the ROS node
   ros::init(argc, argv, "input_server");
   // Create a nodehandle
   ros::NodeHandle n;

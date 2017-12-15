@@ -36,28 +36,18 @@
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 #include "Robotic_toy/ControlTurtlebot.h"
-
-
-
-
 /**
  * @brief      To test the service
  */
-
 TEST(TestAngle, test_deg2rad) {
- 
 ControlTurtlebot bot;
-double angle=180;
-EXPECT_EQ(bot.degree2radian(angle),3.141592654);
-
+double angle = 180;
+EXPECT_EQ(bot.degree2radian(angle), 3.141592654);
 }
-
 TEST(TestAngle, test_rad2deg) {
- 
 ControlTurtlebot bot;
-double angle=3.141592654;
-EXPECT_EQ(bot.radian2degree(angle),180);
-
+double angle = 3.141592654;
+EXPECT_EQ(bot.radian2degree(angle), 180);
 }
 
 
