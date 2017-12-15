@@ -59,7 +59,7 @@ int main(int argc, char **argv){
 	if (client.call(srv))
 	{
 		ros::init(argc, argv, "free_space_navigation_node");		
-		ROS_INFO("Request of input service is: ", (long int)srv.response.totalSidesOut);
+		ROS_INFO("Request to input service is: ");
 	}		
 	else
  	{

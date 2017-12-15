@@ -77,6 +77,7 @@ void ControlTurtlebot::moveShape(double sideLength, double totalSides, double an
  * @param[in]  distance   Length of one side of the polygonal trajectory
  * @param[in]  totalSides   Total number of sides inserted by the user
  * @param[in]  speed        Velocity of robot
+ * @param  isForward    To check if forward moving value or backward
  * 
  */
 void ControlTurtlebot::move_linear(double speed, double distance, bool isForward, double totalSides){
