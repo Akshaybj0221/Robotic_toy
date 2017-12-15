@@ -35,10 +35,7 @@ int main(int argc, char **argv){
 	    ROS_INFO("The service is available!", (long int)srv.response.totalSidesOut);
 	}
 
-	double totalSides = abs(srv.response.totalSidesOut);
-
-	std::cout<<"\nTotalSides / a: "<<totalSides<<"\n";
-	
+	double totalSides = abs(srv.response.totalSidesOut);	
 
   	//subscribe to the odometry topic to get the position of the robot
   	obj.pose_subscriber = n.subscribe("/odom", 10, &ControlTurtlebot::poseCallback, &obj);
@@ -62,10 +59,6 @@ int main(int argc, char **argv){
 			angle = 360;
 			totalSides = 1;
 		}	
-
-		std::cout<<"\nTotalSides: "<<totalSides<<"\n";
-		std::cout<<"\nAngle: "<<angle<<"\n";
-		std::cout<<"\nVelocity: "<<velocity<<"\n";
 
 		obj.moveShape(sideLength, totalSides, angle, velocity);
 

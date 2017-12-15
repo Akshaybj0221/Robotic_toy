@@ -36,14 +36,9 @@ bool ControlTurtlebot::add(toy_robot::input::Request  &req,
 
 void ControlTurtlebot::moveShape(double sideLength, double totalSides, double angle, double velocity){
 
-	std::cout<<"Inside moveShape\n";
-	std::cout<<"\nTotalSides: "<<totalSides<<"\n";
-	std::cout<<"\nAngle: "<<angle<<"\n";
-	std::cout<<"\nVelocity: "<<velocity<<"\n";
 
 	for (int i=0;i<totalSides;i++){
 
-	std::cout<<"Inside I of moveShape func\n";		
 	if(totalSides > 1){		
 		move_linear(velocity, sideLength, true, totalSides);
 		rotate (velocity, degree2radian(angle-10), true);
@@ -60,9 +55,6 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	geometry_msgs::Twist VelocityMessage;
 	//initial pose of the turtlebot before start moving
 	nav_msgs::Odometry initial_turtlebot_odom_pose;
-
-	std::cout<<"SPEED / linear.x "<<speed<<"\n";
-	
 
 	//set the linear velocity to a positive value if isFoward is true
 	if (isForward)
@@ -81,7 +73,6 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 //	std::cout<<"Velocity message BEFORE calculation"<<VelocityMessage;
 	do{
 		pub.publish(VelocityMessage);
-		std::cout<<"Velocity message BEFORE calculation"<<VelocityMessage;
 
 		ros::spinOnce();
 		loop_rate.sleep();
@@ -97,8 +88,6 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	//finally, stop the robot when the distance is moved
 	VelocityMessage.linear.x =0;
 	pub.publish(VelocityMessage);
-	std::cout<<"Velocity message AFTER calculation"<<VelocityMessage;
-//	count = 0;
 
 }
 
