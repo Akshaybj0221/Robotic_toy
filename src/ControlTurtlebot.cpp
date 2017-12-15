@@ -1,6 +1,12 @@
 #include "ControlTurtlebot.hpp"
 
 
+//ControlTurtlebot::ControlTurtlebot() {
+
+//ros::ServiceServer service = n.advertiseService("input", &ControlTurtlebot::add, this);	
+
+//}
+
 
 void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr& pose_message){
 
@@ -13,14 +19,40 @@ void ControlTurtlebot::poseCallback(const nav_msgs::Odometry::ConstPtr& pose_mes
 	turtlebot_odom_pose.pose.pose.orientation.y=pose_message->pose.pose.orientation.y;
 	turtlebot_odom_pose.pose.pose.orientation.z=pose_message->pose.pose.orientation.z;
 
+}	
+
+/*
+bool ControlTurtlebot::add(toy_robot::input::Request  &req,
+         toy_robot::input::Response &res)
+{
+  res.totalSidesOut = req.totalSidesIn;
+  ROS_INFO("request: x=%ld", (long int)req.totalSidesIn);
+  ROS_INFO("sending back response: [%ld]", (long int)res.totalSidesOut);
+  return true;
 }
 
+*/
 
 
 void ControlTurtlebot::moveShape(double sideLength, double totalSides, double angle, double velocity){
+
+	std::cout<<"Inside moveShape\n";
+	std::cout<<"\nTotalSides: "<<totalSides<<"\n";
+	std::cout<<"\nAngle: "<<angle<<"\n";
+	std::cout<<"\nVelocity: "<<velocity<<"\n";
+
+
+
 	for (int i=0;i<totalSides;i++){
+
+	std::cout<<"Inside I of moveShape func\n";		
+	if(totalSides > 1){		
 		move_linear(velocity, sideLength, true);
 		rotate (velocity, degree2radian(angle), true);
+	}
+	else{
+		circle (velocity);
+	}
 	}	
 }
 
@@ -31,9 +63,12 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	//initial pose of the turtlebot before start moving
 	nav_msgs::Odometry initial_turtlebot_odom_pose;
 
+	std::cout<<"SPEED / linear.x "<<speed<<"\n";
+	
+
 	//set the linear velocity to a positive value if isFoward is true
 	if (isForward)
-		VelocityMessage.linear.x =abs(speed);
+		VelocityMessage.linear.x =speed;
 	//all velocities of other axes must be zero.
 	VelocityMessage.linear.y = VelocityMessage.linear.z =VelocityMessage.angular.x =VelocityMessage.angular.y =VelocityMessage.angular.z =0;
 
@@ -43,8 +78,11 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	//we update the initial_turtlebot_odom_pose using the turtlebot_odom_pose global variable updated in the callback function poseCallback
 	initial_turtlebot_odom_pose = turtlebot_odom_pose;
 
+//	std::cout<<"Velocity message BEFORE calculation"<<VelocityMessage;
 	do{
 		pub.publish(VelocityMessage);
+		std::cout<<"Velocity message BEFORE calculation"<<VelocityMessage;
+
 		ros::spinOnce();
 		loop_rate.sleep();
 		distance_moved = sqrt(pow((turtlebot_odom_pose.pose.pose.position.x-initial_turtlebot_odom_pose.pose.pose.position.x), 2) +
@@ -54,9 +92,17 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	//finally, stop the robot when the distance is moved
 	VelocityMessage.linear.x =0;
 	pub.publish(VelocityMessage);
+	std::cout<<"Velocity message AFTER calculation"<<VelocityMessage;
+
+
 }
 
-
+double ControlTurtlebot::circle(double speed){
+	geometry_msgs::Twist VelocityMessage;
+	pub.publish(VelocityMessage);
+	VelocityMessage.linear.x =speed;
+	VelocityMessage.angular.z =speed;
+}
 
 double ControlTurtlebot::rotate(double angular_velocity, double radians,  bool clockwise)
 {
