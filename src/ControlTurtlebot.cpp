@@ -41,8 +41,6 @@ void ControlTurtlebot::moveShape(double sideLength, double totalSides, double an
 	std::cout<<"\nAngle: "<<angle<<"\n";
 	std::cout<<"\nVelocity: "<<velocity<<"\n";
 
-
-
 	for (int i=0;i<totalSides;i++){
 
 	std::cout<<"Inside I of moveShape func\n";		
