@@ -33,9 +33,6 @@
  *  This program will instantiate a free space navigation node, and  service client "input"
  *
  */
-
-
-
 #include "ControlTurtlebot.hpp"
 
 int main(int argc, char **argv){
