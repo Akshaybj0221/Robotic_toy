@@ -50,9 +50,10 @@
   <build_depend>nav_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>tf</build_depend>
+  <build_depend>message_generation</build_depend>
 
 
-
+  <exec_depend>message_runtime</exec_depend>
   <exec_depend>other_catkin_pkg</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>

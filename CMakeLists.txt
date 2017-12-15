@@ -51,11 +51,11 @@ nav_msgs)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
+add_message_files(
+  FILES
+  input.msg
 #   Message2.msg
-# )
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -72,10 +72,13 @@ nav_msgs)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+   nav_msgs 
+   sensor_msgs 
+   geometry_msgs   # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -109,7 +112,7 @@ nav_msgs)
 catkin_package(
   INCLUDE_DIRS include
 ##  LIBRARIES toy_robot
-  CATKIN_DEPENDS other_catkin_pkg roscpp rospy std_msgs geometry_msgs tf sensor_msgs nav_msgs
+  CATKIN_DEPENDS message_runtime other_catkin_pkg roscpp rospy std_msgs geometry_msgs tf sensor_msgs nav_msgs
 )
 
 ###########
