@@ -1,11 +1,9 @@
 <launch>
       
       <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+  	  <arg name="world_file" value="$(find toy_robot)/world/toy_world.world"/>
       </include>
 
-
-     <node name="ControlTurtlebotNode" pkg="toy_robot" type="toy_robot" 
-     	output="screen">
-     </node>
+      <node name="free_space_navigation_node" pkg="toy_robot" type="free_space_navigation_node" output="screen"/>
 
 </launch>
