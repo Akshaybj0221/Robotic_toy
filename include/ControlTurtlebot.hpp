@@ -43,7 +43,7 @@ class ControlTurtlebot {
 //  bool add(toy_robot::input::Request  &req, toy_robot::input::Response &res);
 
   //the function that makes the robot moves forward and backward
-  void move_linear(double speed, double distance, bool isForward);
+  void move_linear(double speed, double distance, bool isForward, double totalSides);
   
   //the function that makes the robot rotates left and right
   double rotate(double ang_vel, double angle_radian, bool isClockwise);

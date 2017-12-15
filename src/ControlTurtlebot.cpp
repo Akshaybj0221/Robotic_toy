@@ -47,7 +47,7 @@ void ControlTurtlebot::moveShape(double sideLength, double totalSides, double an
 
 	std::cout<<"Inside I of moveShape func\n";		
 	if(totalSides > 1){		
-		move_linear(velocity, sideLength, true);
+		move_linear(velocity, sideLength, true, totalSides);
 		rotate (velocity, degree2radian(angle), true);
 	}
 	else{
@@ -57,7 +57,7 @@ void ControlTurtlebot::moveShape(double sideLength, double totalSides, double an
 }
 
 
-void ControlTurtlebot::move_linear(double speed, double distance, bool isForward){
+void ControlTurtlebot::move_linear(double speed, double distance, bool isForward, double totalSides){
 	//delcare a Twist message to send velocity commands
 	geometry_msgs::Twist VelocityMessage;
 	//initial pose of the turtlebot before start moving
@@ -75,6 +75,8 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 	double distance_moved = 0.0;
 	ros::Rate loop_rate(10); // we publish the velocity at 10 Hz (10 times a second)
 
+	int count = 0;
+
 	//we update the initial_turtlebot_odom_pose using the turtlebot_odom_pose global variable updated in the callback function poseCallback
 	initial_turtlebot_odom_pose = turtlebot_odom_pose;
 
@@ -88,12 +90,17 @@ void ControlTurtlebot::move_linear(double speed, double distance, bool isForward
 		distance_moved = sqrt(pow((turtlebot_odom_pose.pose.pose.position.x-initial_turtlebot_odom_pose.pose.pose.position.x), 2) +
 				pow((turtlebot_odom_pose.pose.pose.position.y-initial_turtlebot_odom_pose.pose.pose.position.y), 2));
 
-	}while((distance_moved<distance)&&(ros::ok()));
+	if((turtlebot_odom_pose.pose.pose.position.x == initial_turtlebot_odom_pose.pose.pose.position.x)||(turtlebot_odom_pose.pose.pose.position.y == initial_turtlebot_odom_pose.pose.pose.position.y)){
+	count ++;
+	}
+
+	}while((distance_moved<distance)&&(ros::ok())&&(count<totalSides));
+
 	//finally, stop the robot when the distance is moved
 	VelocityMessage.linear.x =0;
 	pub.publish(VelocityMessage);
 	std::cout<<"Velocity message AFTER calculation"<<VelocityMessage;
-
+	count = 0;
 
 }
 
