@@ -1,0 +1,295 @@
+\hypertarget{class_control_turtlebot}{}\section{Control\+Turtlebot Class Reference}
+\label{class_control_turtlebot}\index{Control\+Turtlebot@{Control\+Turtlebot}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_control_turtlebot_a000b59ff871ccee120ea9ad36a24922a}{circle} (double speed)
+\begin{DoxyCompactList}\small\item\em Take the action. \end{DoxyCompactList}\item 
+void \hyperlink{class_control_turtlebot_abca7a1b114375081608e8e17edebaf22}{pose\+Callback} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&pose\+\_\+message)
+\begin{DoxyCompactList}\small\item\em Callback function for service. \end{DoxyCompactList}\item 
+void \hyperlink{class_control_turtlebot_a71259921f0318cea8ce13838eef9402e}{move\+\_\+linear} (double speed, double distance, bool is\+Forward, double total\+Sides)
+\begin{DoxyCompactList}\small\item\em linearly moving funtion/method \end{DoxyCompactList}\item 
+double \hyperlink{class_control_turtlebot_a0c5c4a568758d3165e7f275d0f666afb}{rotate} (double ang\+\_\+vel, double angle\+\_\+radian, bool is\+Clockwise)
+\begin{DoxyCompactList}\small\item\em Executes the rotation for turtlebot. \end{DoxyCompactList}\item 
+double \hyperlink{class_control_turtlebot_adcb5d2af5d989a8f2088ff13136bfc1a}{degree2radian} (double degree\+Angle)
+\begin{DoxyCompactList}\small\item\em makes conversion from degree to degree \end{DoxyCompactList}\item 
+double \hyperlink{class_control_turtlebot_ac20a23af7bd0978dd47b9dc5a0e0b880}{radian2degree} (double radian\+Angle)
+\begin{DoxyCompactList}\small\item\em makes conversion from radian to degree \end{DoxyCompactList}\item 
+void \hyperlink{class_control_turtlebot_ac23a9389982e796ddb302ea158d370d6}{move\+Shape} (double side\+Length, double total\+Sides, double angle, double velocity)
+\begin{DoxyCompactList}\small\item\em Executes the planned trajectory for turtlebot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher {\bfseries pub}\hypertarget{class_control_turtlebot_a9334d4337499cdde728423b9e2c95152}{}\label{class_control_turtlebot_a9334d4337499cdde728423b9e2c95152}
+
+\item 
+ros\+::\+Subscriber {\bfseries pose\+\_\+subscriber}\hypertarget{class_control_turtlebot_a3f70b9134199b02477917d404c6046ce}{}\label{class_control_turtlebot_a3f70b9134199b02477917d404c6046ce}
+
+\item 
+nav\+\_\+msgs\+::\+Odometry {\bfseries turtlebot\+\_\+odom\+\_\+pose}\hypertarget{class_control_turtlebot_a34fe24732253b38c4eaead6d9ecc0405}{}\label{class_control_turtlebot_a34fe24732253b38c4eaead6d9ecc0405}
+
+\item 
+ros\+::\+Node\+Handle {\bfseries n}\hypertarget{class_control_turtlebot_a7aba89f4135d80c5973fe6e923f56176}{}\label{class_control_turtlebot_a7aba89f4135d80c5973fe6e923f56176}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 52 of file Control\+Turtlebot.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Control\+Turtlebot@{Control\+Turtlebot}!circle@{circle}}
+\index{circle@{circle}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{circle(double speed)}{circle(double speed)}}]{\setlength{\rightskip}{0pt plus 5cm}double Control\+Turtlebot\+::circle (
+\begin{DoxyParamCaption}
+\item[{double}]{speed}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_a000b59ff871ccee120ea9ad36a24922a}{}\label{class_control_turtlebot_a000b59ff871ccee120ea9ad36a24922a}
+
+
+Take the action. 
+
+Executes a dummy trajectory for turtlebot.
+
+Move robot in a random dummy trajectory \begin{DoxyReturn}{Returns}
+double\+: Return true
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em velocity} & Velocity of robot \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!degree2radian@{degree2radian}}
+\index{degree2radian@{degree2radian}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{degree2radian(double degree\+Angle)}{degree2radian(double degreeAngle)}}]{\setlength{\rightskip}{0pt plus 5cm}double Control\+Turtlebot\+::degree2radian (
+\begin{DoxyParamCaption}
+\item[{double}]{degree\+Angle}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_adcb5d2af5d989a8f2088ff13136bfc1a}{}\label{class_control_turtlebot_adcb5d2af5d989a8f2088ff13136bfc1a}
+
+
+makes conversion from degree to degree 
+
+makes conversion from degree to radian
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em radian\+Angle} & Angle by which the robot needs to turn\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: Return true if succeeded
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em radian\+Angle} & Angle by which the robot needs to turn \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 261 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!move\+\_\+linear@{move\+\_\+linear}}
+\index{move\+\_\+linear@{move\+\_\+linear}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{move\+\_\+linear(double speed, double distance, bool is\+Forward, double total\+Sides)}{move_linear(double speed, double distance, bool isForward, double totalSides)}}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+Turtlebot\+::move\+\_\+linear (
+\begin{DoxyParamCaption}
+\item[{double}]{speed, }
+\item[{double}]{distance, }
+\item[{bool}]{is\+Forward, }
+\item[{double}]{total\+Sides}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_a71259921f0318cea8ce13838eef9402e}{}\label{class_control_turtlebot_a71259921f0318cea8ce13838eef9402e}
+
+
+linearly moving funtion/method 
+
+Makes the turtlebot move in a straight line at a particular distance.
+
+the function that makes the robot moves forward and backward
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & Length of one side of the polygonal trajectory \\
+\hline
+{\em total\+Sides} & Total number of sides inserted by the user \\
+\hline
+{\em is\+Forward} & To check if forward moving value or backward \\
+\hline
+{\em speed} & Velocity of robot\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: Return true if succeeded
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em distance} & Length of one side of the polygonal trajectory \\
+\hline
+\mbox{\tt in}  & {\em total\+Sides} & Total number of sides inserted by the user \\
+\hline
+\mbox{\tt in}  & {\em speed} & Velocity of robot \\
+\hline
+ & {\em is\+Forward} & To check if forward moving value or backward \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!move\+Shape@{move\+Shape}}
+\index{move\+Shape@{move\+Shape}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{move\+Shape(double side\+Length, double total\+Sides, double angle, double velocity)}{moveShape(double sideLength, double totalSides, double angle, double velocity)}}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+Turtlebot\+::move\+Shape (
+\begin{DoxyParamCaption}
+\item[{double}]{side\+Length, }
+\item[{double}]{total\+Sides, }
+\item[{double}]{angle, }
+\item[{double}]{velocity}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_ac23a9389982e796ddb302ea158d370d6}{}\label{class_control_turtlebot_ac23a9389982e796ddb302ea158d370d6}
+
+
+Executes the planned trajectory for turtlebot. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em side\+Length} & Length of one side of the polygonal trajectory \\
+\hline
+\mbox{\tt in}  & {\em total\+Sides} & Total number of sides inserted by the user \\
+\hline
+\mbox{\tt in}  & {\em angle} & Angle by which the robot needs to turn \\
+\hline
+\mbox{\tt in}  & {\em velocity} & Velocity of robot\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\+: Return nothing
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em side\+Length} & Length of one side of the polygonal trajectory \\
+\hline
+\mbox{\tt in}  & {\em total\+Sides} & Total number of sides inserted by the user \\
+\hline
+\mbox{\tt in}  & {\em angle} & Angle by which the robot needs to turn \\
+\hline
+\mbox{\tt in}  & {\em velocity} & Velocity of robot \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!pose\+Callback@{pose\+Callback}}
+\index{pose\+Callback@{pose\+Callback}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{pose\+Callback(const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&pose\+\_\+message)}{poseCallback(const nav_msgs::Odometry::ConstPtr &pose_message)}}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+Turtlebot\+::pose\+Callback (
+\begin{DoxyParamCaption}
+\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{pose\+\_\+message}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_abca7a1b114375081608e8e17edebaf22}{}\label{class_control_turtlebot_abca7a1b114375081608e8e17edebaf22}
+
+
+Callback function for service. 
+
+Callback for the Odometry data.
+
+Function callback for the service input
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose\+\_\+message} & Service message\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\+: Return nothing
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pose\+\_\+message} & The message \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!radian2degree@{radian2degree}}
+\index{radian2degree@{radian2degree}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{radian2degree(double radian\+Angle)}{radian2degree(double radianAngle)}}]{\setlength{\rightskip}{0pt plus 5cm}double Control\+Turtlebot\+::radian2degree (
+\begin{DoxyParamCaption}
+\item[{double}]{radian\+Angle}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_ac20a23af7bd0978dd47b9dc5a0e0b880}{}\label{class_control_turtlebot_ac20a23af7bd0978dd47b9dc5a0e0b880}
+
+
+makes conversion from radian to degree 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em radian\+Angle} & Angle by which the robot needs to turn\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: Return true if succeeded
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em radian\+Angle} & Angle by which the robot needs to turn \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 251 of file Control\+Turtlebot.\+cpp.
+
+\index{Control\+Turtlebot@{Control\+Turtlebot}!rotate@{rotate}}
+\index{rotate@{rotate}!Control\+Turtlebot@{Control\+Turtlebot}}
+\subsubsection[{\texorpdfstring{rotate(double ang\+\_\+vel, double angle\+\_\+radian, bool is\+Clockwise)}{rotate(double ang_vel, double angle_radian, bool isClockwise)}}]{\setlength{\rightskip}{0pt plus 5cm}double Control\+Turtlebot\+::rotate (
+\begin{DoxyParamCaption}
+\item[{double}]{angular\+\_\+velocity, }
+\item[{double}]{radians, }
+\item[{bool}]{clockwise}
+\end{DoxyParamCaption}
+)}\hypertarget{class_control_turtlebot_a0c5c4a568758d3165e7f275d0f666afb}{}\label{class_control_turtlebot_a0c5c4a568758d3165e7f275d0f666afb}
+
+
+Executes the rotation for turtlebot. 
+
+the function that makes the robot rotate
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em is\+Clockwise} & To make sure robot always rotates in a clockwise direction \\
+\hline
+\mbox{\tt in}  & {\em angle\+\_\+radian} & Angle by which the robot needs to turn \\
+\hline
+\mbox{\tt in}  & {\em angular\+\_\+vel} & Velocity of robot rotation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: Return true if succeeded
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em clockwise} & To make sure robot always rotates in a clockwise direction \\
+\hline
+\mbox{\tt in}  & {\em radians} & Angle by which the robot needs to turn \\
+\hline
+\mbox{\tt in}  & {\em angular\+\_\+velocity} & Velocity of robot rotation \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 150 of file Control\+Turtlebot.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Control\+Turtlebot.\+hpp\item 
+src/\hyperlink{_control_turtlebot_8cpp}{Control\+Turtlebot.\+cpp}\end{DoxyCompactItemize}
