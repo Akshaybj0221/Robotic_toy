@@ -44,12 +44,9 @@ Link to the video presentation uploaded on youtube: [Presentation Video](https:/
 
 ## Example outputs
 
-### Final Map Example
+![Turtlebot moving in Rviz](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
 
-![finalmap](https://user-images.githubusercontent.com/31521157/34059472-2dce52de-e1ad-11e7-9c35-8bc2ac10b1d1.jpg)
-
-### Picture Service Example
-![pictureServiceExample](https://raw.githubusercontent.com/inani47/terrapinavigator/master/outputs/pictures/turtleBotImage1512864439.161703.jpg)
+![Rviz and Turtlebot launching together](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(230).png)
 
 
 ## About the Developer
