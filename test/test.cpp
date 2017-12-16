@@ -22,7 +22,7 @@
  *********************************************************************************/
 
 /**
- *   @file	  talkerTest.cpp
+ *   @file	  test.cpp
  *   @author	  Akshay Bajaj
  *   @copyright   MIT License
  *
@@ -35,7 +35,7 @@
 
 #include <gtest/gtest.h>
 #include <ros/ros.h>
-#include "Robotic_toy/ControlTurtlebot.h"
+#include "ControlTurtlebot.hpp"
 /**
  * @brief      To test the service
  */
@@ -49,13 +49,9 @@ ControlTurtlebot bot;
 double angle = 3.141592654;
 EXPECT_EQ(bot.radian2degree(angle), 180);
 }
-
-
 /**
  * @brief      To test talker tf broadcaster
  */
-
-
 TEST(testTf, tfWorking) {
   ros::NodeHandle nh1;
 
@@ -72,3 +68,30 @@ TEST(testTf, tfWorking) {
       ADD_FAILURE();
   }
 }
+/**
+ * @brief      To test the angle
+ */
+TEST(TestAngle, test_deg2rad2) {
+ControlTurtlebot bot;
+double pi1 = 3.141592654;
+EXPECT_EQ(bot.radian2degree(180), pi1);
+}
+/**
+ * @brief      To test the circle
+ */
+TEST(TestReturn, test_circle) {
+ControlTurtlebot bot;
+double speed = 1;
+EXPECT_EQ(bot.circle(0.3), 1);
+}
+/**
+ * @brief      To test the rotate function output
+ */
+TEST(TestExists, test_rotate) {
+ControlTurtlebot bot;
+double speed = 1;
+EXPECT_GT(bot.rotate(0.3, 3.14, true), 0);
+}
+
+
+

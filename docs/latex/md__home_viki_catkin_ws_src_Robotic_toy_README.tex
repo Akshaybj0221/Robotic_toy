@@ -1,0 +1,85 @@
+\href{https://github.com/Akshaybj0221/Robotic_toy/blob/master/LICENSE}{\tt } \href{https://travis-ci.org/Akshaybj0221/Robotic_toy}{\tt }
+
+Robotic\+\_\+toy\+: A Robot Toy which moves in a polygon pattern as commanded by the user
+
+This repository showcases the R\+OS package for the Robotic toy project. 
+
+
+
+\subsection*{S\+IP Process\+:}
+
+The S\+IP for the project can be found \href{https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing}{\tt here}.
+
+The Planning notes for the project can be found \href{https://docs.google.com/document/d/1cuM1NgHEFEkOeJMYtaNpIpAXfJ_u0YdG9ozSTAGEVLY/edit?usp=sharing}{\tt here}.
+
+The link to the defect log, time log, product backlog, and release backlog table are as follows\+:
+
+\href{https://docs.google.com/spreadsheets/d/1XhrbZjeozz02wAhwiE5d25f-5yS15jGHrX1-cPPEQfs/edit?usp=sharing}{\tt Product Backlog}.
+
+\href{https://docs.google.com/spreadsheets/d/1TbC_kTvKK2MRH9XEX8YbNeR_NHrXO2tIK1uxxjgT04Y/edit?usp=sharing}{\tt Release Backlog Table}.
+
+\href{https://docs.google.com/spreadsheets/d/1sQbnvWU1MZIwgt0YRekxqZq24jqrIhIC-pB-LOpDczo/edit?usp=sharing}{\tt Defect Log}
+
+\subsection*{Dependencies/\+Prerequiesites}
+
+The dependencies of this repository are\+:
+
+
+\begin{DoxyCode}
+1 * Ubuntu 16.04
+2 * ROS Kinetic Kame
+3 * TurtleBot
+4 * Gazebo
+\end{DoxyCode}
+
+
+\subsection*{Building the code}
+
+The code can be built by cloning the repository and executing following steps\+: 
+\begin{DoxyCode}
+1 <home>$ cd <workspace>/src
+2 <workspace>/src$ git clone https://github.com/Akshaybj0221/Robotic\_toy.git
+3 <workspace>/src$ cd ..
+4 <workspace>$ catkin\_make 
+\end{DoxyCode}
+
+
+\subsection*{First sprint update}
+
+Things done in the first sprint\+: \begin{DoxyVerb}* Install all the packages necessary to run Turtlebot in Gazebo and rviz
+* Test the working of the necessary packages and check the data being received from the robot
+* Explore various topics and packages that can be used in this project
+* Create initial UML diagrams
+* Setup Travis for the repository
+* Create SIP log
+\end{DoxyVerb}
+
+
+\subsection*{Second sprint update}
+
+Things done in second sprint\+: \begin{DoxyVerb}* Create a custom gazebo world that can be used a testing rig to test the performance of the algorithm 
+* Create stub implementation of the class 
+* Create Working test cases for the classes 
+* Search how to input parameter in form of a service from user 
+* Make a service for taking input from the user 
+* Make a launch file to open Gazebo world, rviz and script  
+* Control the Turtlebot using commandline as well as dummy script.
+* Create planning notes and update SIP tasklog as well as release backlog. 
+\end{DoxyVerb}
+
+
+\subsection*{Results}
+
+The software is very effective and fast in tracking any tagging motion simultaneously. Its funtionality has been tested on multiple test videos and software has a success rate of 98\%.
+
+The working output of the software can be seen in the output folder of the repository or the link below\+: \href{https://github.com/Akshaybj0221/ENPM808X_Midterm.git}{\tt https\+://github.\+com/\+Akshaybj0221/\+E\+N\+P\+M808\+X\+\_\+\+Midterm.\+git}
+
+\subsubsection*{Miscellaneous Instructions}
+
+
+\begin{DoxyEnumerate}
+\item cpplint and cppcheck output files are added in the {\itshape results} folder.
+\item screenshots are added in the {\itshape output} folder.
+\item {\itshape msg} folder is to be ignored as it has nothing relevant to the project.
+\item {\itshape config} folder contains the custom log file. 
+\end{DoxyEnumerate}

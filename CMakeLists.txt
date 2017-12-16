@@ -216,3 +216,17 @@ target_link_libraries(input ${catkin_LIBRARIES})
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+  add_rostest_gtest(test_node test/test_launch.launch test/test.cpp test/mainTest.cpp src/ControlTurtlebot.cpp)
+  target_link_libraries(test_node ${catkin_LIBRARIES})
+    add_dependencies(
+	  test_node
+	  ${catkin_EXPORTED_TARGETS}
+)
+endif()
+
+## Add folders to be run by python nosetests
+# catkin_add_nosetests(test)
