@@ -5,7 +5,7 @@
 
 Robotic_toy: A Robot Toy which moves in a polygon pattern as commanded by the user
 
-(https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
+![Turtlebot moving in Rviz](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
 
 The project is envisioned to be a robotic toy which can help kids to learn elementary level things such as shapes, numbers and alphabets, etc. in an interactive way. The robot moves in a trajectory on the floor that corresponds to a polygonal shape.
 This project focuses on shape teaching component of the robot which will take the input from users (kids) and will move in the desired shaped path. The input given to the robot would be number of sides. And according to that, the robot will calculate what the shape should be and it would move in a trajectory of that specified shape, completing the loop. 
