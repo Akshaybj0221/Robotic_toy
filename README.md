@@ -87,7 +87,7 @@ cd src/
 git clone --recursive https://github.com/Akshaybj0221/Robotic_toy.git
 cd ..
 catkin_make
-
+```
 ## Running the Demo Using Launch File
 To run the demo we need to run a launch files which is in the directory Robotic_toy/launch. First launch file loads the Gazebo and rviz simulators along with a client service node *input* to take in input from the user (Number of sides). 
 
