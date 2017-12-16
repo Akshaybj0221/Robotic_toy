@@ -1,9 +1,11 @@
-# Robotic_toy
+### Robotic_toy
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Akshaybj0221/Robotic_toy/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/Akshaybj0221/Robotic_toy.svg?branch=master)](https://travis-ci.org/Akshaybj0221/Robotic_toy)
 
 Robotic_toy: A Robot Toy which moves in a polygon pattern as commanded by the user
+
+(https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
 
 The project is envisioned to be a robotic toy which can help kids to learn elementary level things such as shapes, numbers and alphabets, etc. in an interactive way. The robot moves in a trajectory on the floor that corresponds to a polygonal shape.
 This project focuses on shape teaching component of the robot which will take the input from users (kids) and will move in the desired shaped path. The input given to the robot would be number of sides. And according to that, the robot will calculate what the shape should be and it would move in a trajectory of that specified shape, completing the loop. 
@@ -39,7 +41,9 @@ The link to the defect log, time log, product backlog, and release backlog table
 
 [Time Log](https://docs.google.com/spreadsheets/d/1VeWo3rjCu81KB_xSVg6yemmHTXDCDP8UWNnFYt2IB9k/edit?usp=sharing)
 
-Link to the video presentation uploaded on youtube: [Presentation Video](https://youtu.be)
+Link to the video presentation uploaded on youtube: 
+[Presentation Video](https://www.youtube.com/watch?v=9u4PGOxRDGw)
+[Live Package Run](https://www.youtube.com/watch?v=-qi4Jy60qDk)
 
 
 ## Example outputs
