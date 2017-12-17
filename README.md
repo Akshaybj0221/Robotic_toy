@@ -60,8 +60,6 @@ The link to the defect log, time log, product backlog, and release backlog table
 
 [Release Backlog Table](https://docs.google.com/spreadsheets/d/1TbC_kTvKK2MRH9XEX8YbNeR_NHrXO2tIK1uxxjgT04Y/edit?usp=sharing).
 
-[Defect Log](https://docs.google.com/spreadsheets/d/1sQbnvWU1MZIwgt0YRekxqZq24jqrIhIC-pB-LOpDczo/edit?usp=sharing)
-
 [Time Log](https://docs.google.com/spreadsheets/d/1VeWo3rjCu81KB_xSVg6yemmHTXDCDP8UWNnFYt2IB9k/edit?usp=sharing)
 
 
@@ -235,9 +233,10 @@ And the screenshots are present in the [output](https://github.com/Akshaybj0221/
 4. *config* folder contains the custom rviz file.
 
 
-## <a name="upd"></a> First sprint update (1,2,3)
-Things done in the first sprint:
+## <a name="upd"></a> Second sprint update
+
 ### First Sub-Tasks
+
 	* Install all the packages necessary to run Turtlebot in Gazebo and rviz
 	* Test the working of the necessary packages and check the data being received from the robot
 	* Explore various topics and packages that can be used in this project
@@ -245,8 +244,7 @@ Things done in the first sprint:
 	* Setup Travis for the repository
 	* Create SIP log and other log files.
 
-Things done in second sprint:
-### Second sub-tasks 
+### Second sub-task
  
 	* Create stub implementation of the class 
 	* Create methods and function definitions
@@ -256,7 +254,6 @@ Things done in second sprint:
 	* Unit testing and debugging
 	* Coverage testing
 
-Things done in third sprint:
 ### Third sub-tasks 
 
 	* Make a launch file to open Gazebo world, rviz and script	
@@ -265,10 +262,7 @@ Things done in third sprint:
 	* Create planning notes and update SIP tasklog as well as release backlog.
 	* Unit testing and extensive debugging
 
-
-## Second sprint update (4,5,6)
-Things done in fourth sprint:
-### First sub-tasks 
+### Fourth sub-tasks 
 
 	* Search how to input parameter in form of a service from user 
 	* Make a service for taking input from the user 
@@ -276,8 +270,7 @@ Things done in fourth sprint:
 	* Service definition
 	* Unit testing and extensive debugging
 
-Things done in fifth sprint:
-### Second sub-tasks 
+### Fifth sub-tasks 
 
 	* Create a custom gazebo world that can be used a testing rig to test the performance of the algorithm
 	* Service launch parameters included in launch file
@@ -285,16 +278,20 @@ Things done in fifth sprint:
 	* Create Gazebo and rviz launch file
 	* Create Gazebo world
 
-Things done in sixth sprint:
-### Third sub-tasks 
+### Sixth sub-tasks 
 
-	* Create a custom callback funtion
+	* Create a custom callback function
 	* Create main function calling stubs
 	* Create logic for no. of sides to angle conversion
 	* Unit testing and debugging
 	* Coverage testing
 
-## Third sprint update (7,8,9)
+### Seventh sub-tasks 
+
+	* Create a rviz file
+	* Check rviz configuration
+
+## Third sprint update
 Things done in seventh sprint:
 ### First sub-tasks 
 
