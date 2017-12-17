@@ -2,11 +2,36 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Akshaybj0221/Robotic_toy/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/Akshaybj0221/Robotic_toy.svg?branch=master)](https://travis-ci.org/Akshaybj0221/Robotic_toy)
+[![Coverage Status](https://coveralls.io/repos/github/Akshaybj0221/Robotic_toy/badge.svg?branch=master)](https://coveralls.io/github/Akshaybj0221/Robotic_toy?branch=master)	
 
 Robotic_toy: A Robot Toy which moves in a polygon pattern as commanded by the user
 
 ![Turtlebot moving in Rviz](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
 
+## Contents 
+* [About the Developer](#dev)
+* [Overview](#overview) 
+* [SIP process](#sip)
+* [Presentation](#present)
+* [Example Output](#op)
+* [Dependencies](#dep)
+* [Building the code](#building)
+* [Running](#running)
+* [Testing](#testing)
+* [Documentation](#docs)
+* [License](#lic) 
+* [Results](#results)
+* [Miscellaneous Instructions](#misc)
+* [Sprint Updates](#upd)
+
+
+## About the Developer <a name="dev"></a>
+
+I am Akshay Bajaj. I am a Research assistant under Dr. Elisabeth Smela in Mechanical Department, UMD and currently pursing my Masters in Robotics at University of Maryland - College Park. I am also a Software Developer in Cadeo groups and I hold a Bachelors degree in Computer Science Engineer from, IIST, India. 
+
+Some of my previous work can be found at [here](https://github.com/Akshaybj0221).
+
+## <a name="overview"></a> Overview 
 The project is envisioned to be a robotic toy which can help kids to learn elementary level things such as shapes, numbers and alphabets, etc. in an interactive way. The robot moves in a trajectory on the floor that corresponds to a polygonal shape.
 This project focuses on shape teaching component of the robot which will take the input from users (kids) and will move in the desired shaped path. The input given to the robot would be number of sides. And according to that, the robot will calculate what the shape should be and it would move in a trajectory of that specified shape, completing the loop. 
 
@@ -20,12 +45,10 @@ The project was programmed in the C++ programming language and uses with C++ 11/
 
 The project was completed in about two weeks time.  This project was implemented by following the Solo Iterative Process(SIP). This included the creation of a product backlog using the requirements and ordering them in the order of their priority. Finally, the software was developed over two sprints which were of varying duration. The first week focused on the planning and design of the project inculding the initial UML diagrams. The second week involved the programming of the actual module and the development of a video presentation explaining the entire project (links of planning stubs in the SIP Process section).
 
-
 This repository showcases the ROS package for the Robotic toy project.
 
----
 
-## SIP Process:
+## <a name="sip"></a> ## SIP Process:
 
 The SIP for the project can be found [here](https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing).
 
@@ -41,26 +64,24 @@ The link to the defect log, time log, product backlog, and release backlog table
 
 [Time Log](https://docs.google.com/spreadsheets/d/1VeWo3rjCu81KB_xSVg6yemmHTXDCDP8UWNnFYt2IB9k/edit?usp=sharing)
 
-Link to the video presentation uploaded on youtube: 
+
+## <a name="present"></a> Presentation
+
+Link to the video presentation uploaded on youtube are 
+
 [Presentation Video](https://www.youtube.com/watch?v=9u4PGOxRDGw)
-[Live Package Run](https://www.youtube.com/watch?v=-qi4Jy60qDk)
+, [Live Package Run](https://www.youtube.com/watch?v=-qi4Jy60qDk)
 
+Link to the PPT slides are [PPT}(https://drive.google.com/file/d/1Ox1wZ-Bmv6ex3OlFTprF5AMF34goBQah/view?usp=sharing)
 
-## Example outputs
+## <a name="op"></a> Example outputs
 
 ![Turtlebot moving in Rviz](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(226).png)
 
 ![Rviz and Turtlebot launching together](https://github.com/Akshaybj0221/Robotic_toy/blob/master/output/Screenshot%20(230).png)
 
 
-## About the Developer
-
-I am Akshay Bajaj. I am a Research assistant under Dr. Elisabeth Smela in Mechanical Department, UMD and currently pursing my Masters in Robotics at University of Maryland - College Park. I am also a Software Developer in Cadeo groups and I hold a Bachelors degree in Computer Science Engineer from, IIST, India. 
-
-Some of my previous work can be found at [here](https://github.com/Akshaybj0221).
-
-
-## Dependencies/Prerequiesites 
+## <a name="dep"></a> Dependencies/Prerequiesites 
 The dependencies of this repository are:
 
 ```
@@ -70,7 +91,7 @@ The dependencies of this repository are:
 * Gazebo
 ```
 
-## Building the code
+## <a name="building"></a> Building the code
 
 The code can be built by cloning the repository and executing following steps:
 ```
@@ -89,7 +110,7 @@ git clone --recursive https://github.com/Akshaybj0221/Robotic_toy.git
 cd ..
 catkin_make
 ```
-## Running the Demo Using Launch File
+## <a name="running"></a> Running the Demo Using Launch File
 To run the demo we need to run a launch files which is in the directory Robotic_toy/launch. First launch file loads the Gazebo and rviz simulators along with a client service node *input* to take in input from the user (Number of sides). 
 
 Once, the launch file is run, now the user will have to call a node *free_space_navigation_node* which enables the robot to calculate the trajectory and move on it.
@@ -118,7 +139,7 @@ This will make a square shaped trajrctory of the robot:
 rosrun toy_robot free_space_navigation_node 4
 ```
 
-### Recording, Inspecting and Playing back bag files
+## Recording, Inspecting and Playing back bag files
 To enable bag file recording of all topics except camera. While launching the demo, in a new terminal:
 ```
 cd ~/catkin_ws/
@@ -151,7 +172,7 @@ cd src/Roomba_robot/results
 rosbag play recTalker.bag
 ```
 
-## Running Rostest
+## <a name="testing"></a> Running Rostest
 To run rostest, in a new terminal:
 ```
 cd ~/catkin_ws/
@@ -159,14 +180,17 @@ source devel/setup.bash
 cd build/
 make run_tests
 ```
-### Code Coverage Output Using lcov
+## Code Coverage Output
 
 * Unable to show code coverage using coveralls. 
-* When gazebo initializes it  throws some errors of missing plugins and thi followin error:
-  SpawnModel: Failure - model name mobile_base already exist.
+* When gazebo initializes it  throws some errors of missing plugins and the following error:
+  Failure - model name mobile_base already exist.
   However, these make no difference to the demo. The latter error maybe resolved once ros answers is back online.
 
-### Generating Doxygen Documentation
+## <a name="lic"></a> License
+The license of the document can be found [here](https://github.com/Akshaybj0221/Robotic_toy/blob/master/LICENSE).
+
+## <a name="docs"></a> Generating Doxygen Documentation
 
 To install doxygen run the following command: 
 ```
@@ -188,18 +212,19 @@ cd html
 firefox index.html
 ```
 
-Else, can use *doxywizard* and use the GUI console. 
+# Else, can use *doxywizard* and use the GUI console. 
 
-## Results
+## <a name="results"></a> Results
 
-The software is very effective and fast in tracking any tagging motion simultaneously.
-Its funtionality has been tested on multiple test videos and software has a success rate of 98%.
+The software is very effective and is responsible for the robot motion being exactly as the calculatd trajectory.
+Its funtionality has been tested on multiple test videos and with multiple parameters, and the robots motion is exactly as planed, it has a success rate of 98%.
 
-The working output of the software can be seen in the output folder of the repository or the link below:
-https://github.com/Akshaybj0221/ENPM808X_Midterm.git
+The working output of the software can be seen [here](https://www.youtube.com/watch?v=-qi4Jy60qDk&t=26s)
+
+And the screenshots are present in the [output](https://github.com/Akshaybj0221/Robotic_toy/tree/master/output) folder
 
 
-### Miscellaneous Instructions
+## <a name="misc"></a> Miscellaneous Instructions
 
 1. cpplint and cppcheck output files are added in the *results* folder.
 
@@ -210,7 +235,7 @@ https://github.com/Akshaybj0221/ENPM808X_Midterm.git
 4. *config* folder contains the custom rviz file.
 
 
-## First sprint update (1,2,3)
+## <a name="upd"></a> First sprint update (1,2,3)
 Things done in the first sprint:
 # First Sub-Tasks
 	* Install all the packages necessary to run Turtlebot in Gazebo and rviz
