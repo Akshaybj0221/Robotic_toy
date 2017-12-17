@@ -212,7 +212,7 @@ cd html
 firefox index.html
 ```
 
-# Else, can use *doxywizard* and use the GUI console. 
+#### Else, can use *doxywizard* and use the GUI console. 
 
 ## <a name="results"></a> Results
 
