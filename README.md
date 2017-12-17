@@ -48,7 +48,7 @@ The project was completed in about two weeks time.  This project was implemented
 This repository showcases the ROS package for the Robotic toy project.
 
 
-## <a name="sip"></a> ## SIP Process:
+## <a name="sip"></a> SIP Process:
 
 The SIP for the project can be found [here](https://docs.google.com/spreadsheets/d/1jLItNdomgrqtsU7UJ7i3CasUFsOEN9d-EHtjViunuMg/edit?usp=sharing).
 
@@ -72,7 +72,7 @@ Link to the video presentation uploaded on youtube are
 [Presentation Video](https://www.youtube.com/watch?v=9u4PGOxRDGw)
 , [Live Package Run](https://www.youtube.com/watch?v=-qi4Jy60qDk)
 
-Link to the PPT slides are [PPT}(https://drive.google.com/file/d/1Ox1wZ-Bmv6ex3OlFTprF5AMF34goBQah/view?usp=sharing)
+Link to the PPT slides are [PPT](https://drive.google.com/file/d/1Ox1wZ-Bmv6ex3OlFTprF5AMF34goBQah/view?usp=sharing)
 
 ## <a name="op"></a> Example outputs
 
@@ -237,7 +237,7 @@ And the screenshots are present in the [output](https://github.com/Akshaybj0221/
 
 ## <a name="upd"></a> First sprint update (1,2,3)
 Things done in the first sprint:
-# First Sub-Tasks
+### First Sub-Tasks
 	* Install all the packages necessary to run Turtlebot in Gazebo and rviz
 	* Test the working of the necessary packages and check the data being received from the robot
 	* Explore various topics and packages that can be used in this project
@@ -246,7 +246,7 @@ Things done in the first sprint:
 	* Create SIP log and other log files.
 
 Things done in second sprint:
-# Second sub-tasks 
+### Second sub-tasks 
  
 	* Create stub implementation of the class 
 	* Create methods and function definitions
@@ -257,7 +257,7 @@ Things done in second sprint:
 	* Coverage testing
 
 Things done in third sprint:
-# Third sub-tasks 
+### Third sub-tasks 
 
 	* Make a launch file to open Gazebo world, rviz and script	
 	* Make a topic subscriber (odometry)
@@ -268,7 +268,7 @@ Things done in third sprint:
 
 ## Second sprint update (4,5,6)
 Things done in fourth sprint:
-# First sub-tasks 
+### First sub-tasks 
 
 	* Search how to input parameter in form of a service from user 
 	* Make a service for taking input from the user 
@@ -277,7 +277,7 @@ Things done in fourth sprint:
 	* Unit testing and extensive debugging
 
 Things done in fifth sprint:
-# Second sub-tasks 
+### Second sub-tasks 
 
 	* Create a custom gazebo world that can be used a testing rig to test the performance of the algorithm
 	* Service launch parameters included in launch file
@@ -286,7 +286,7 @@ Things done in fifth sprint:
 	* Create Gazebo world
 
 Things done in sixth sprint:
-# Third sub-tasks 
+### Third sub-tasks 
 
 	* Create a custom callback funtion
 	* Create main function calling stubs
@@ -296,7 +296,7 @@ Things done in sixth sprint:
 
 ## Third sprint update (7,8,9)
 Things done in seventh sprint:
-# First sub-tasks 
+### First sub-tasks 
 
 	* Add doxygen style comments to every script
 	* Remove cppling errors and save output
@@ -307,7 +307,7 @@ Things done in seventh sprint:
 	* Coverage testing and Integration testing
 
 Things done in seventh sprint:
-# Second sub-tasks 
+### Second sub-tasks 
 
 	* Create screen casts of output 
 	* Complete Readme.md
