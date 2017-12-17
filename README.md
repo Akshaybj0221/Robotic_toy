@@ -133,7 +133,7 @@ NOTE: THE SIDES SHOULD BE MORE THAN 2 OR ELSE IT WILL GIVE UNEXPECTED BEHAVIOR!
 
 This will start the toy_robot package and make the robot move in the corresponding shape in both rviz and Gazebo.
 
-# Example: 
+#### Example: 
 This will make a square shaped trajrctory of the robot: 
 ```
 rosrun toy_robot free_space_navigation_node 4
